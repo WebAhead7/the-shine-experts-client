@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { token as tokenAtom } from './atoms';
+
+import SignInForm from './components/SignInForm';
+
 function App() {
   const [token, setToken] = useRecoilState(tokenAtom);
   useEffect(() => {
@@ -10,7 +13,11 @@ function App() {
     }
   }, []);
 
-  return <div>{token}</div>;
+  return (
+    <div>
+      <SignInForm />
+    </div>
+  );
 }
 
 export default App;
