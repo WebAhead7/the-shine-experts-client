@@ -1,7 +1,16 @@
 import React from 'react';
-
-const Home = () => {
-  return <div>private route</div>;
+import { logout } from '../axios/auth';
+const Home = (props) => {
+  const onClick = () => {
+    logout();
+    props.history.push('/login');
+  };
+  return (
+    <div>
+      private route
+      <button onClick={onClick}></button>
+    </div>
+  );
 };
 
 export default Home;

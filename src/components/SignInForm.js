@@ -2,11 +2,12 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { login } from '../axios/auth';
 
-const SignInForm = () => {
+const SignInForm = (props) => {
   const { register, errors, handleSubmit } = useForm();
   const onSubmit = ({ email, password }, e) => {
     try {
       login({ email, password });
+      props.history.push('/home');
     } catch (error) {}
 
     e.target.reset();
