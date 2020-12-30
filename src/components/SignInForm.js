@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { login } from '../utils/auth';
+import { login } from '../axios/auth';
 
 const SignInForm = () => {
   const { register, errors, handleSubmit } = useForm();
