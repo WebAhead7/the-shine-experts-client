@@ -1,27 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import axios from '../axios';
+import { login } from '../utils/auth';
 
 const SignInForm = () => {
   const { register, errors, handleSubmit } = useForm();
-  const onSubmit = async ({ email, password }, e) => {
+  const onSubmit = ({ email, password }, e) => {
     try {
-      const {
-        data: { token },
-      } = await axios.post('/auth', {
-        email,
-        password,
-      });
+      login({ email, password });
+    } catch (error) {}
 
-      localStorage.setItem('token', token);
-
-      console.log(token);
-    } catch (err) {
-      const msg = err.response.data.msg;
-      console.log(msg);
-    }
-
-    //e.target.reset();
+    e.target.reset();
   };
 
   return (
