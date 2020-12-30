@@ -6,18 +6,22 @@ const SignInForm = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async ({ email, password }, e) => {
     try {
-      const res = await axios.post('/auth', {
-        body: {
-          email,
-          password,
-        },
+      const {
+        data: { token },
+      } = await axios.post('/auth', {
+        email,
+        password,
       });
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
+
+      localStorage.setItem('token', token);
+
+      console.log(token);
+    } catch (err) {
+      const msg = err.response.data.msg;
+      console.log(msg);
     }
 
-    //e.target.reset();
+    // e.target.reset();
   };
 
   return (
