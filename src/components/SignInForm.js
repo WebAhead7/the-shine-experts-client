@@ -2,7 +2,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { login } from '../axios/auth';
 import './Forms.css';
+import '../imges/car.png';
 
+const carlogo = require('../imges/car.png');
 const SignInForm = ({ history }) => {
   const { register, errors, handleSubmit } = useForm();
   const onSubmit = async ({ email, password }) => {
@@ -15,9 +17,10 @@ const SignInForm = ({ history }) => {
   };
 
   return (
-    <div className="login-form">
+    <div className="forms">
       <div className="logo">
-        <img src="" alt="" />
+        <img src={require('../imges/car.png')} />
+        <img src={carlogo} />
         <h4>The Shine Experts</h4>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -36,12 +39,12 @@ const SignInForm = ({ history }) => {
         />
         {errors.password && 'Password is required'}
         <input className="submit" type="submit" placeholder="LOG IN " />
+        <div>
+          <p>
+            Have An Account ?<a>Log in</a>
+          </p>
+        </div>
       </form>
-      <div>
-        <p>
-          Create New Account ?<a>sign up</a>
-        </p>
-      </div>
     </div>
   );
 };

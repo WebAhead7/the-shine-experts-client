@@ -1,6 +1,6 @@
 import SignInForm from './components/SignInForm';
 import Home from './components/Home';
-
+import SignUpForm from './components/SignUpForm';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/routes/PrivateRoute';
 function App() {
@@ -8,6 +8,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/login" component={SignInForm} />
+        <Route exact path="/signup" component={SignUpForm} />
         <PrivateRoute exact path="/home" component={Home} />
       </Switch>
     </Router>
