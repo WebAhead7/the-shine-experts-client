@@ -1,0 +1,23 @@
+.VehicleTypebtn {
+  background-color: rgb(255, 255, 255);
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  margin: 10px;
+}
+.VehicleTypebtn:hover {
+  background-color: #b8b8b8;
+  color: rgb(0, 0, 0);
+}
+.backbtn {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+.backbtn:hover {
+  background-color: #b8b8b8;
+}
+.logo {
+  width: 350px;
+  height: auto;
+  margin-bottom: -30px;
+}

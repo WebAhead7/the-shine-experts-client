@@ -5,19 +5,13 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 10vh;
-  background: #12c2e9;
+  background: #002027;
 
-  background: linear-gradient(to right, #4fa5f6, #c471ed, #12c2e9);
+  background: linear-gradient(to right, #002027, #c471ed, #002027);
 
-  background: linear-gradient(to right, #4fa5f6, #c471ed, #12c2e9);
+  background: linear-gradient(to right, #002027, #c471ed, #002027);
 }
-.caricon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 100px;
-}
+
 form {
   width: 100%;
   display: flex;
@@ -25,7 +19,7 @@ form {
   align-items: center;
   justify-content: center;
 }
-.forms {
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;

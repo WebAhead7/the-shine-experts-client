@@ -19,7 +19,7 @@ const SignInForm = ({ history }) => {
   };
 
   return (
-    <div className="forms">
+    <div className="card">
       <div className="logo">
         <img className="logo" src={logo} alt="car" />
       </div>
