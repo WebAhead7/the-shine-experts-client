@@ -68,7 +68,7 @@ const SignInForm = ({ history }) => {
         <input className="submit" type="submit" placeholder="Sign Up" />
         <div>
           <p>
-            Have an Account ? <NavLink to="/signin">Sign In</NavLink>
+            Have an Account ? <NavLink to="/login">Log In</NavLink>
           </p>
         </div>
       </form>
