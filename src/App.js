@@ -3,12 +3,14 @@ import Home from './components/Home';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/routes/PrivateRoute';
+
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/login" component={SignInForm} />
         <PrivateRoute exact path="/home" component={Home} />
+        <PrivateRoute exact path="/" component={Home} />
       </Switch>
     </Router>
   );
