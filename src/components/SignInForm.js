@@ -4,15 +4,13 @@ import { login } from '../axios/auth';
 
 const SignInForm = ({ history }) => {
   const { register, errors, handleSubmit } = useForm();
-  const onSubmit = async ({ email, password }, e) => {
+  const onSubmit = async ({ email, password }) => {
     try {
       await login({ email, password });
       history.push('/home');
     } catch (err) {
       console.log(err.message);
     }
-
-    e.target.reset();
   };
 
   return (
