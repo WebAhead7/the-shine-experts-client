@@ -1,9 +1,9 @@
 import React from 'react';
 import { logout } from '../axios/auth';
-const Home = (props) => {
+const Home = ({ history }) => {
   const onClick = () => {
     logout();
-    props.history.push('/login');
+    history.push('/login');
   };
   return (
     <div>
