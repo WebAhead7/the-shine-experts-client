@@ -8,7 +8,7 @@ const Home = ({ history }) => {
   return (
     <div>
       private route
-      <button onClick={onClick}></button>
+      <button onClick={onClick}>LOG OUT</button>
     </div>
   );
 };
