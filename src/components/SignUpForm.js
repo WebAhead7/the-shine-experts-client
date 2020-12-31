@@ -1,39 +1,46 @@
-import React from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { login } from '../axios/auth';
+import { signup } from '../axios/users';
+import { NavLink } from 'react-router-dom';
 import logo from '../images/car.png';
 
 const SignInForm = ({ history }) => {
+  const [serverErrMsg, setServerErrMsg] = useState('');
   const { register, errors, handleSubmit } = useForm();
-  const onSubmit = async ({ email, password }) => {
+  const onSubmit = async ({ name, email, password }) => {
     try {
-      await login({ email, password });
+      await signup({ name, email, password });
       history.push('/home');
     } catch (err) {
-      console.log(err.message);
+      setServerErrMsg(err.message);
     }
   };
 
   return (
     <div className="forms">
       <div className="logo">
-        <img className="logo" src={logo} />
+        <img className="logo" src={logo} alt="car" />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="input"
-          name="fullname"
-          placeholder="Full Name"
+          type="text"
+          name="name"
+          placeholder="Name"
           ref={register({ required: true })}
         />
+        {errors.name && 'Name is required'}
         <input
           className="input"
-          name="PhoneNumber"
+          type="tel"
+          name="phonenumber"
           placeholder="Phone Number"
           ref={register({ required: true })}
         />
+        {errors.phonenumber && 'Phone number is required'}
         <input
           className="input"
+          type="email"
           name="email"
           placeholder="Email"
           ref={register({ required: true })}
@@ -41,23 +48,27 @@ const SignInForm = ({ history }) => {
         {errors.email && 'Email is required'}
         <input
           className="input"
+          type="password"
           placeholder="Password"
-          name="password"
+          name="password1"
           ref={register({ required: true })}
         />
         {errors.password && 'Password is required'}
         <input
           className="input"
+          type="password"
           placeholder="Confirm Password"
-          name="Confirm-password"
+          name="password2"
           ref={register({ required: true })}
         />
         {errors.password && 'Password is required'}
+        <br />
+        {serverErrMsg}
 
-        <input className="submit" type="submit" placeholder="LOG IN " />
+        <input className="submit" type="submit" placeholder="Sign Up" />
         <div>
           <p>
-            Create New Account ?<a>sign up</a>
+            Have an Account ? <NavLink to="/signin">Sign In</NavLink>
           </p>
         </div>
       </form>

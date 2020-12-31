@@ -10,6 +10,7 @@ function App() {
         <Route exact path="/login" component={SignInForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <PrivateRoute exact path="/home" component={Home} />
+        <PrivateRoute exact path="/" component={Home} />
       </Switch>
     </Router>
   );
