@@ -35,6 +35,10 @@ form {
   border-radius: 10px;
   height: 100%;
   width: 100%;
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 .input {
   width: 90%;
@@ -62,4 +66,6 @@ form {
 }
 .logo {
   width: 400px;
+  height: auto;
+  margin-bottom: -30px;
 }
