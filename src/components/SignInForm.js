@@ -7,14 +7,20 @@ import './Forms.css';
 import logo from '../images/car.png';
 
 const SignInForm = ({ history }) => {
-  const [isServerError, setIsServerError] = useState(false);
+  const [serverErrMsg, setServerErrMsg] = useState('');
   const { register, errors, handleSubmit } = useForm();
   const onSubmit = async ({ email, password }) => {
     try {
       await login({ email, password });
       history.push('/home');
     } catch (err) {
-      setIsServerError(true);
+      setServerErrMsg(err.message);
+    }
+  };
+
+  const validate = (inputName) => {
+    if (errors[inputName]) {
+      return <p className="validation">{errors[inputName].message}</p>;
     }
   };
 
@@ -29,19 +35,27 @@ const SignInForm = ({ history }) => {
           type="email"
           name="email"
           placeholder="Email"
-          ref={register({ required: true })}
+          ref={register({
+            required: 'You must specify an email',
+          })}
         />
-        {errors.email && 'Email is required'}
+        {validate('email')}
+
         <input
           className="input"
           type="password"
           placeholder="Password"
           name="password"
-          ref={register({ required: true })}
+          ref={register({
+            required: 'You must specify a password',
+          })}
         />
-        {errors.password && 'Password is required'}
+        {validate('password')}
+
         <br />
-        {isServerError && 'Email or password are wrong'}
+
+        {serverErrMsg && <p className="validation">{serverErrMsg}</p>}
+
         <input className="submit" type="submit" placeholder="LOG IN " />
         <div>
           <p>
