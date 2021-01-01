@@ -8,13 +8,18 @@ import logo from '../images/car.png';
 
 const SignInForm = ({ history }) => {
   const [serverErrMsg, setServerErrMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const { register, errors, handleSubmit } = useForm();
   const onSubmit = async ({ email, password }) => {
     try {
+      setServerErrMsg('');
+      setIsLoading(true);
       await login({ email, password });
       history.push('/home');
+      setIsLoading(false);
     } catch (err) {
       setServerErrMsg(err.message);
+      setIsLoading(false);
     }
   };
 
@@ -55,6 +60,10 @@ const SignInForm = ({ history }) => {
         <br />
 
         {serverErrMsg && <p className="validation">{serverErrMsg}</p>}
+
+        <br />
+
+        {isLoading && <p>Loading...</p>}
 
         <input className="submit" type="submit" placeholder="LOG IN " />
         <div>

@@ -14,12 +14,11 @@ export const login = async ({ email, password }) => {
   } catch (err) {
     if (err.response) {
       if (err.response.data.msg) {
-        throw new Error(err.response.data.msg);
+        throw new Error('Password or email is wrong!');
       }
       if (err.response.data.errors) {
-        throw new Error('Validate inputs !');
+        throw new Error('Validate inputs!');
       }
-      throw new Error('Ops something went wrong in the server!');
     }
     throw new Error('Ops something went wrong in the server!');
   }

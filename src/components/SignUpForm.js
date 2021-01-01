@@ -6,6 +6,7 @@ import logo from '../images/car.png';
 
 const SignUpForm = ({ history }) => {
   const [serverErrMsg, setServerErrMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const { register, errors, handleSubmit, watch } = useForm();
 
   const password = useRef({});
@@ -95,6 +96,9 @@ const SignUpForm = ({ history }) => {
         <br />
         {serverErrMsg && <p className="validation">{serverErrMsg}</p>}
 
+        <br />
+
+        {isLoading && <p>Loading...</p>}
         <input className="submit" type="submit" placeholder="Sign Up" />
         <div>
           <p>
