@@ -4,12 +4,21 @@ import { signup } from '../axios/users';
 import { NavLink } from 'react-router-dom';
 import logo from '../images/car.png';
 
-const SignInForm = ({ history }) => {
+const SignUpForm = ({ history }) => {
   const [serverErrMsg, setServerErrMsg] = useState('');
   const { register, errors, handleSubmit } = useForm();
-  const onSubmit = async ({ name, email, password }) => {
+  const onSubmit = async ({
+    name,
+    email,
+    phonenumber,
+    password,
+    password2,
+  }) => {
     try {
-      await signup({ name, email, password });
+      if (password !== password2) {
+        throw new Error('Passwords do not match');
+      }
+      await signup({ name, email, phonenumber, password });
       history.push('/home');
     } catch (err) {
       setServerErrMsg(err.message);
@@ -32,14 +41,6 @@ const SignInForm = ({ history }) => {
         {errors.name && 'Name is required'}
         <input
           className="input"
-          type="tel"
-          name="phonenumber"
-          placeholder="Phone Number"
-          ref={register({ required: true })}
-        />
-        {errors.phonenumber && 'Phone number is required'}
-        <input
-          className="input"
           type="email"
           name="email"
           placeholder="Email"
@@ -48,9 +49,17 @@ const SignInForm = ({ history }) => {
         {errors.email && 'Email is required'}
         <input
           className="input"
+          type="tel"
+          name="phonenumber"
+          placeholder="Phone Number"
+          ref={register({ required: true })}
+        />
+        {errors.phonenumber && 'Phone number is required'}
+        <input
+          className="input"
           type="password"
           placeholder="Password"
-          name="password1"
+          name="password"
           ref={register({ required: true })}
         />
         {errors.password && 'Password is required'}
@@ -63,7 +72,7 @@ const SignInForm = ({ history }) => {
         />
         {errors.password && 'Password is required'}
         <br />
-        {serverErrMsg}
+        {serverErrMsg.toString()}
 
         <input className="submit" type="submit" placeholder="Sign Up" />
         <div>
@@ -76,4 +85,4 @@ const SignInForm = ({ history }) => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;
