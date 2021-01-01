@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { signup } from '../axios/users';
 import { NavLink } from 'react-router-dom';
@@ -6,18 +6,19 @@ import logo from '../images/car.png';
 
 const SignUpForm = ({ history }) => {
   const [serverErrMsg, setServerErrMsg] = useState('');
-  const { register, errors, handleSubmit } = useForm();
-  const onSubmit = async ({
-    name,
-    email,
-    phonenumber,
-    password,
-    password2,
-  }) => {
+  const { register, errors, handleSubmit, watch } = useForm();
+
+  const password = useRef({});
+  password.current = watch('password', '');
+
+  const validate = (inputName) => {
+    if (errors[inputName]) {
+      return <p className="validation">{errors[inputName].message}</p>;
+    }
+  };
+
+  const onSubmit = async ({ name, email, phonenumber, password }) => {
     try {
-      if (password !== password2) {
-        throw new Error('Passwords do not match');
-      }
       await signup({ name, email, phonenumber, password });
       history.push('/home');
     } catch (err) {
@@ -36,43 +37,63 @@ const SignUpForm = ({ history }) => {
           type="text"
           name="name"
           placeholder="Name"
-          ref={register({ required: true })}
+          ref={register({
+            required: 'You must specify a name',
+          })}
         />
-        {errors.name && 'Name is required'}
+        {validate('name')}
+
         <input
           className="input"
           type="email"
           name="email"
           placeholder="Email"
-          ref={register({ required: true })}
+          ref={register({
+            required: 'You must specify an email',
+          })}
         />
-        {errors.email && 'Email is required'}
+        {validate('email')}
+
         <input
           className="input"
           type="tel"
           name="phonenumber"
           placeholder="Phone Number"
-          ref={register({ required: true })}
+          ref={register({
+            required: 'You must specify a phone number',
+          })}
         />
-        {errors.phonenumber && 'Phone number is required'}
+        {validate('phonenumber')}
+
         <input
           className="input"
           type="password"
           placeholder="Password"
           name="password"
-          ref={register({ required: true })}
+          ref={register({
+            required: 'You must specify a password',
+            minLength: {
+              value: 8,
+              message: 'Password must have at least 8 characters',
+            },
+          })}
         />
-        {errors.password && 'Password is required'}
+        {validate('password')}
+
         <input
           className="input"
           type="password"
           placeholder="Confirm Password"
           name="password2"
-          ref={register({ required: true })}
+          ref={register({
+            validate: (value) =>
+              value === password.current || 'The passwords do not match',
+          })}
         />
-        {errors.password && 'Password is required'}
+        {validate('password2')}
+
         <br />
-        {serverErrMsg}
+        {serverErrMsg && <p className="validation">{serverErrMsg}</p>}
 
         <input className="submit" type="submit" placeholder="Sign Up" />
         <div>

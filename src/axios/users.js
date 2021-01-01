@@ -14,7 +14,12 @@ export const signup = async ({ name, email, phonenumber, password }) => {
     localStorage.setItem('token', token);
     axios.defaults.headers.common['x-auth-token'] = token;
   } catch (err) {
-    console.log(err.response.data);
-    throw new Error(err.response.data);
+    if (!err.response) {
+      throw new Error('Ops server is down!');
+    }
+    if (err.response.data) {
+      throw new Error(err.response.data.msg);
+    }
+    throw new Error('Validate inputs !');
   }
 };
