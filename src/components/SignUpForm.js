@@ -20,10 +20,14 @@ const SignUpForm = ({ history }) => {
 
   const onSubmit = async ({ name, email, phonenumber, password }) => {
     try {
+      setServerErrMsg('');
+      setIsLoading(true);
       await signup({ name, email, phonenumber, password });
       history.push('/home');
+      setIsLoading(false);
     } catch (err) {
       setServerErrMsg(err.message);
+      setIsLoading(false);
     }
   };
 
