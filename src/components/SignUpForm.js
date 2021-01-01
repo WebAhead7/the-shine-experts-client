@@ -72,7 +72,7 @@ const SignUpForm = ({ history }) => {
         />
         {errors.password && 'Password is required'}
         <br />
-        {serverErrMsg.toString()}
+        {serverErrMsg}
 
         <input className="submit" type="submit" placeholder="Sign Up" />
         <div>
