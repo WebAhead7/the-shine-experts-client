@@ -10,7 +10,7 @@ import motorcycle from '../images/motorcycle.png';
 import bigtruck from '../images/bigtruck.png';
 import biggertruck from '../images/biggertruck.png';
 import backarrow from '../images/back.png';
-import './VehicleType.css';
+import './Types.css';
 
 const VehicleType = ({ history }) => {
   const [serverErrMsg, setServerErrMsg] = useState('');

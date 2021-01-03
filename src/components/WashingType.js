@@ -10,7 +10,7 @@ import insidecleaning from '../images/inside_car_cleaning.png';
 import oil from '../images/oil.png';
 import cleanengine from '../images/clean-engine.png';
 import backarrow from '../images/back.png';
-import './VehicleType.css';
+import './Types.css';
 
 const WashingType = ({ history }) => {
   const [serverErrMsg, setServerErrMsg] = useState('');
