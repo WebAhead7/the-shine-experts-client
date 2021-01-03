@@ -1,18 +1,33 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { signup } from '../axios/users';
 import { NavLink } from 'react-router-dom';
 import logo from '../images/car.png';
 
-const SignInForm = ({ history }) => {
+const SignUpForm = ({ history }) => {
   const [serverErrMsg, setServerErrMsg] = useState('');
-  const { register, errors, handleSubmit } = useForm();
-  const onSubmit = async ({ name, email, password }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const { register, errors, handleSubmit, watch } = useForm();
+
+  const password = useRef({});
+  password.current = watch('password', '');
+
+  const validate = (inputName) => {
+    if (errors[inputName]) {
+      return <p className="validation">{errors[inputName].message}</p>;
+    }
+  };
+
+  const onSubmit = async ({ name, email, phonenumber, password }) => {
     try {
-      await signup({ name, email, password });
+      setServerErrMsg('');
+      setIsLoading(true);
+      await signup({ name, email, phonenumber, password });
       history.push('/home');
+      setIsLoading(false);
     } catch (err) {
       setServerErrMsg(err.message);
+      setIsLoading(false);
     }
   };
 
@@ -27,44 +42,67 @@ const SignInForm = ({ history }) => {
           type="text"
           name="name"
           placeholder="Name"
-          ref={register({ required: true })}
+          ref={register({
+            required: 'You must specify a name',
+          })}
         />
-        {errors.name && 'Name is required'}
-        <input
-          className="input"
-          type="tel"
-          name="phonenumber"
-          placeholder="Phone Number"
-          ref={register({ required: true })}
-        />
-        {errors.phonenumber && 'Phone number is required'}
+        {validate('name')}
+
         <input
           className="input"
           type="email"
           name="email"
           placeholder="Email"
-          ref={register({ required: true })}
+          ref={register({
+            required: 'You must specify an email',
+          })}
         />
-        {errors.email && 'Email is required'}
+        {validate('email')}
+
+        <input
+          className="input"
+          type="tel"
+          name="phonenumber"
+          placeholder="Phone Number"
+          ref={register({
+            required: 'You must specify a phone number',
+          })}
+        />
+        {validate('phonenumber')}
+
         <input
           className="input"
           type="password"
           placeholder="Password"
-          name="password1"
-          ref={register({ required: true })}
+          name="password"
+          ref={register({
+            required: 'You must specify a password',
+            minLength: {
+              value: 8,
+              message: 'Password must have at least 8 characters',
+            },
+          })}
         />
-        {errors.password && 'Password is required'}
+        {validate('password')}
+
         <input
           className="input"
           type="password"
           placeholder="Confirm Password"
           name="password2"
-          ref={register({ required: true })}
+          ref={register({
+            validate: (value) =>
+              value === password.current || 'The passwords do not match',
+          })}
         />
-        {errors.password && 'Password is required'}
-        <br />
-        {serverErrMsg}
+        {validate('password2')}
 
+        <br />
+        {serverErrMsg && <p className="validation">{serverErrMsg}</p>}
+
+        <br />
+
+        {isLoading && <p>Loading...</p>}
         <input className="submit" type="submit" placeholder="Sign Up" />
         <div>
           <p>
@@ -76,4 +114,4 @@ const SignInForm = ({ history }) => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;
