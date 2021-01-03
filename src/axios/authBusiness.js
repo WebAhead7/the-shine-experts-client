@@ -1,6 +1,6 @@
 import axios from './axios';
 
-export const login = async ({ email, password }) => {
+export const loginBusiness = async ({ email, password }) => {
   try {
     const {
       data: { token },

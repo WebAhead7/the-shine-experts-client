@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { login } from '../axios/authUser';
+import { loginUser } from '../axios/authUser';
+import { loginBusiness } from '../axios/authBusiness';
 import { NavLink } from 'react-router-dom';
 import './Forms.css';
 
 import logo from '../images/car.png';
 
+import { useRecoilValue } from 'recoil';
+import { typeState } from '../atoms';
+
 const SignInForm = ({ history }) => {
+  const type = useRecoilValue(typeState);
+
   const [serverErrMsg, setServerErrMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { register, errors, handleSubmit } = useForm();
@@ -14,7 +20,12 @@ const SignInForm = ({ history }) => {
     try {
       setServerErrMsg('');
       setIsLoading(true);
-      await login({ email, password });
+      if (type === 'user') {
+        await loginUser({ email, password });
+      }
+      if (type === 'business') {
+        await loginBusiness({ email, password });
+      }
       history.push('/home');
       setIsLoading(false);
     } catch (err) {

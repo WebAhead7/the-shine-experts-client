@@ -3,11 +3,14 @@ import './Forms.css';
 
 import logo from '../images/car.png';
 
-const EntryPage = ({ history }) => {
-  const [userType, setuserType] = React.useState('user');
+import { useRecoilState } from 'recoil';
+import { typeState } from '../atoms';
 
-  function PickType(fortype) {
-    setuserType(fortype);
+const EntryPage = ({ history }) => {
+  const [, setType] = useRecoilState(typeState);
+
+  function PickType(type) {
+    setType(type);
     history.push('/signin');
   }
   return (
