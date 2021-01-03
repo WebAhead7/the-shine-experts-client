@@ -1,9 +1,16 @@
+.logo-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
 .VehicleTypebtn {
   background-color: rgb(255, 255, 255);
   height: 150px;
   width: 150px;
   border-radius: 10px;
-  margin: 10px;
+  margin: 20px;
 }
 .VehicleTypebtn:hover {
   background-color: #b8b8b8;
@@ -19,5 +26,5 @@
 .logo {
   width: 350px;
   height: auto;
-  margin-bottom: -30px;
+  margin-bottom: -60px;
 }
