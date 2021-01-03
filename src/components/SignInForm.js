@@ -10,6 +10,8 @@ import logo from '../images/car.png';
 import { useRecoilValue } from 'recoil';
 import { typeState } from '../atoms';
 
+import backarrow from '../images/back.png';
+
 const SignInForm = ({ history }) => {
   const type = useRecoilValue(typeState);
 
@@ -42,9 +44,14 @@ const SignInForm = ({ history }) => {
     }
   };
 
+  const onClick = () => history.push('/');
+
   return (
     <div className="card">
       <div className="logo">
+        <button className="backbtn" onClick={onClick}>
+          <img src={backarrow} alt="" />
+        </button>
         <img className="logo" src={logo} alt="car" />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
