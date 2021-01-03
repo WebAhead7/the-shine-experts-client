@@ -1,12 +1,12 @@
 import React from 'react';
 import './Forms.css';
 
-import logo from '../images/car.png';
+import logo from '../../images/car.png';
 
 import { useRecoilState } from 'recoil';
-import { typeState } from '../atoms';
+import { typeState } from '../../atoms';
 
-const EntryPage = ({ history }) => {
+const Entry = ({ history }) => {
   const [, setType] = useRecoilState(typeState);
 
   function PickType(type) {
@@ -24,4 +24,4 @@ const EntryPage = ({ history }) => {
   );
 };
 
-export default EntryPage;
+export default Entry;

@@ -1,13 +1,16 @@
-import SignInForm from './components/SignInForm';
-import HomeUser from './components/HomeUser';
-import HomeBusiness from './components/HomeBusiness';
-import SignUpForm from './components/SignUpForm';
-import VehicleType from './components/VehicleType';
-import WashingType from './components/WashingType';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import SignInForm from './components/pages/SignInForm';
+import HomeUser from './components/pages/HomeUser';
+import HomeBusiness from './components/pages/HomeBusiness';
+import SignUpForm from './components/pages/SignUpForm';
+import VehicleType from './components/pages/VehicleType';
+import WashingType from './components/pages/WashingType';
+import Entry from './components/pages/Entry';
+
 import PrivateRouteUser from './components/routes/PrivateRouteUser';
 import PrivateRouteBusiness from './components/routes/PrivateRouteBusiness';
-import EntryPage from './components/EntryPage';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 function App() {
   return (
     <Router>
@@ -20,7 +23,7 @@ function App() {
           path="/home-business"
           component={HomeBusiness}
         />
-        <Route exact path="/" component={EntryPage} />
+        <Route exact path="/" component={Entry} />
         <Route exact path="/vehicletype" component={VehicleType} />
         <Route exact path="/washingtype" component={WashingType} />
       </Switch>

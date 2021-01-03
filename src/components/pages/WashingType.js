@@ -1,21 +1,20 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { signup } from '../axios/users';
+import { signup } from '../../axios/users';
 import { NavLink } from 'react-router-dom';
-import logo from '../images/car.png';
-import back from '../images/back.png';
+import logo from '../../images/car.png';
 import {
-  CarIcon,
-  BiggerTruck,
-  BigTruck,
-  Bus,
-  Motorcycle,
-  PickupIcon,
-} from '../images/vehicleTypes/index';
-
+  AutoCarWash,
+  CleanEngine,
+  HandWashing,
+  InsideCarCleaning,
+  Oil,
+  Polishing,
+} from '../../images/washingTypes/index';
+import backarrow from '../../images/back.png';
 import './Types.css';
 
-const VehicleType = ({ history }) => {
+const WashingType = ({ history }) => {
   const [serverErrMsg, setServerErrMsg] = useState('');
   const { register, errors, handleSubmit } = useForm();
   const onSubmit = async ({ name, email, password }) => {
@@ -32,7 +31,7 @@ const VehicleType = ({ history }) => {
       <div className="logo-div">
         <div>
           <button className="backbtn">
-            <img src={back} alt="" />
+            <img src={backarrow} alt="" />
           </button>
         </div>
         <div>
@@ -44,35 +43,41 @@ const VehicleType = ({ history }) => {
       </div>
       <div>
         <button className="VehicleTypebtn">
-          <img src={CarIcon} alt="" /> <h4>car</h4>
+          <img src={AutoCarWash} alt="" /> <h4>auto car washing</h4>
+          <h4>20$</h4>
         </button>
         <button className="VehicleTypebtn">
-          <img src={Bus} alt="" />
-          <h4>bus</h4>
-        </button>
-      </div>
-      <div>
-        <button className="VehicleTypebtn">
-          <img src={BiggerTruck} alt="biggertruck" />
-          <h4>bigger truck</h4>
-        </button>
-        <button className="VehicleTypebtn">
-          <img src={PickupIcon} alt="pickup" />
-          <h4>pickup</h4>
+          <img src={HandWashing} alt="" />
+          <h4>hand washing</h4>
+          <h4>50$</h4>
         </button>
       </div>
       <div>
         <button className="VehicleTypebtn">
-          <img src={BigTruck} alt="bigtruck" />
-          <h4>truck</h4>
+          <img src={CleanEngine} alt="" />
+          <h4>clean Engine</h4>
+          <h4>60$</h4>
         </button>
         <button className="VehicleTypebtn">
-          <img src={Motorcycle} alt="motorcycle" />
-          <h4>motorcycle</h4>
+          <img src={Oil} alt="" />
+          <h4>oil changing</h4>
+          <h4>50$</h4>
+        </button>
+      </div>
+      <div>
+        <button className="VehicleTypebtn">
+          <img src={Polishing} alt="" />
+          <h4>polishing</h4>
+          <h4>100$</h4>
+        </button>
+        <button className="VehicleTypebtn">
+          <img src={InsideCarCleaning} alt="" />
+          <h4>inside cleaning</h4>
+          <h4>40$</h4>
         </button>
       </div>
     </div>
   );
 };
 
-export default VehicleType;
+export default WashingType;

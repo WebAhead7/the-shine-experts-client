@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { loginUser } from '../axios/authUser';
-import { loginBusiness } from '../axios/authBusiness';
+import { loginUser } from '../../axios/authUser';
+import { loginBusiness } from '../../axios/authBusiness';
 import { NavLink } from 'react-router-dom';
 import './Forms.css';
 
-import logo from '../images/car.png';
+import logo from '../../images/car.png';
 
 import { useRecoilValue } from 'recoil';
-import { typeState } from '../atoms';
+import { typeState } from '../../atoms';
 
-import backarrow from '../images/back.png';
+import backarrow from '../../images/back.png';
 
 const SignInForm = ({ history }) => {
   const type = useRecoilValue(typeState);
