@@ -5,13 +5,13 @@ import { NavLink } from 'react-router-dom';
 import logo from '../images/car.png';
 import back from '../images/back.png';
 import {
-  Caricon,
-  Biggertruck,
-  Bigtruck,
+  CarIcon,
+  BiggerTruck,
+  BigTruck,
   Bus,
   Motorcycle,
-  Pickupicon,
-} from '../images/vehicle-Type/index';
+  PickupIcon,
+} from '../images/vehicleTypes/index';
 
 import './Types.css';
 
@@ -29,15 +29,22 @@ const VehicleType = ({ history }) => {
 
   return (
     <div className="card">
-      <div className="logo">
-        <button className="backbtn">
-          <img src={back} alt="" />
-        </button>
-        <img className="logo" src={logo} alt="car" />
+      <div className="logo-div">
+        <div>
+          <button className="backbtn">
+            <img src={back} alt="" />
+          </button>
+        </div>
+        <div>
+          <img className="logo" src={logo} alt="car" />
+        </div>
+        <div>
+          <button>logout</button>
+        </div>
       </div>
       <div>
         <button className="VehicleTypebtn">
-          <img src={Caricon} alt="" /> <h4>car</h4>
+          <img src={CarIcon} alt="" /> <h4>car</h4>
         </button>
         <button className="VehicleTypebtn">
           <img src={Bus} alt="" />
@@ -46,17 +53,17 @@ const VehicleType = ({ history }) => {
       </div>
       <div>
         <button className="VehicleTypebtn">
-          <img src={Biggertruck} alt="biggertruck" />
+          <img src={BiggerTruck} alt="biggertruck" />
           <h4>bigger truck</h4>
         </button>
         <button className="VehicleTypebtn">
-          <img src={Pickupicon} alt="pickup" />
+          <img src={PickupIcon} alt="pickup" />
           <h4>pickup</h4>
         </button>
       </div>
       <div>
         <button className="VehicleTypebtn">
-          <img src={Bigtruck} alt="bigtruck" />
+          <img src={BigTruck} alt="bigtruck" />
           <h4>truck</h4>
         </button>
         <button className="VehicleTypebtn">
