@@ -14,7 +14,14 @@ export const makeOrder = async ({
       tomorrowOrToday,
     });
   } catch (err) {
-    const msg = err.response.data.msg;
-    throw new Error(msg);
+    if (err.response) {
+      if (err.response.data.msg) {
+        throw new Error(err.response.data.msg);
+      }
+      if (err.response.data.errors) {
+        throw new Error('Validate inputs !');
+      }
+    }
+    throw new Error('Ops something went wrong in the server!');
   }
 };
