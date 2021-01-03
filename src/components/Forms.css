@@ -63,3 +63,12 @@ form {
   height: auto;
   margin-bottom: -30px;
 }
+
+.validation {
+  color: #bf1650;
+}
+
+.validation::before {
+  display: inline;
+  content: '⚠ ';
+}
