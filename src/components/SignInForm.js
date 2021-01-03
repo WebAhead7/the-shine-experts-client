@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { login } from '../axios/auth';
+import { login } from '../axios/authUser';
 import { NavLink } from 'react-router-dom';
 import './Forms.css';
 
