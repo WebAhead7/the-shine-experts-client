@@ -22,11 +22,13 @@ const SignInForm = ({ history }) => {
       setIsLoading(true);
       if (type === 'user') {
         await loginUser({ email, password });
+        history.push('/home-user');
       }
       if (type === 'business') {
         await loginBusiness({ email, password });
+        history.push('/home-business');
       }
-      history.push('/home');
+
       setIsLoading(false);
     } catch (err) {
       setServerErrMsg(err.message);

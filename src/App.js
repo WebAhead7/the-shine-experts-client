@@ -1,10 +1,12 @@
 import SignInForm from './components/SignInForm';
-import Home from './components/Home';
+import HomeUser from './components/HomeUser';
+import HomeBusiness from './components/HomeBusiness';
 import SignUpForm from './components/SignUpForm';
 import VehicleType from './components/VehicleType';
 import WashingType from './components/WashingType';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import PrivateRoute from './components/routes/PrivateRoute';
+import PrivateRouteUser from './components/routes/PrivateRouteUser';
+import PrivateRouteBusiness from './components/routes/PrivateRouteBusiness';
 import EntryPage from './components/EntryPage';
 function App() {
   return (
@@ -12,7 +14,12 @@ function App() {
       <Switch>
         <Route exact path="/signin" component={SignInForm} />
         <Route exact path="/signup" component={SignUpForm} />
-        <PrivateRoute exact path="/home" component={Home} />
+        <PrivateRouteUser exact path="/home-user" component={HomeUser} />
+        <PrivateRouteBusiness
+          exact
+          path="/home-business"
+          component={HomeBusiness}
+        />
         <Route exact path="/" component={EntryPage} />
         <Route exact path="/vehicletype" component={VehicleType} />
         <Route exact path="/washingtype" component={WashingType} />
