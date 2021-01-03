@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { signup } from '../axios/users';
 import { NavLink } from 'react-router-dom';
 import logo from '../images/car.png';
+import logout from '../images/logout.png';
+
 import {
   AutoCarWash,
   CleanEngine,
@@ -38,7 +40,9 @@ const WashingType = ({ history }) => {
           <img className="logo" src={logo} alt="car" />
         </div>
         <div>
-          <button>logout</button>
+          <button className="logout-btn">
+            <img src={logout} alt="" />
+          </button>
         </div>
       </div>
       <div>
