@@ -13,14 +13,14 @@ import './Types.css';
 
 const WashingType = ({ history }) => {
   const onClick = () => {
-    history.push('/');
+    history.goBack();
   };
 
   return (
     <div className="card">
       <div className="logo-div">
         <div>
-          <button className="backbtn">
+          <button className="backbtn" onClick={onClick}>
             <img src={backarrow} alt="" />
           </button>
         </div>

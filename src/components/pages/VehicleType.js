@@ -1,6 +1,6 @@
 import { Car as Logo, Back, Logout } from '../../images/index';
 
-import VehicleTypebtn from '../buttons/VehicleTypebtn';
+import { VehicleTypeBtn, LogoutBtn } from '../buttons/index';
 
 import {
   CarIcon,
@@ -14,11 +14,15 @@ import {
 import './Types.css';
 
 const VehicleType = ({ history }) => {
+  const onClickBack = () => {
+    history.goBack();
+  };
+
   return (
     <div className="card">
       <div className="logo-div">
         <div>
-          <button className="backbtn">
+          <button className="backbtn" onClick={onClickBack}>
             <img src={Back} alt="" />
           </button>
         </div>
@@ -26,26 +30,24 @@ const VehicleType = ({ history }) => {
           <img className="logo" src={Logo} alt="car" />
         </div>
         <div>
-          <button className="logout-btn">
-            <img src={Logout} alt="" />
-          </button>
+          <LogoutBtn history={history} />
         </div>
       </div>
       <div>
-        <VehicleTypebtn icon={CarIcon} name="car" history={history} />
-        <VehicleTypebtn icon={Bus} name="bus" history={history} />
+        <VehicleTypeBtn icon={CarIcon} name="car" history={history} />
+        <VehicleTypeBtn icon={Bus} name="bus" history={history} />
       </div>
       <div>
-        <VehicleTypebtn
+        <VehicleTypeBtn
           icon={BiggerTruck}
           name="bigger truck"
           history={history}
         />
-        <VehicleTypebtn icon={PickupIcon} name="pickup" history={history} />
+        <VehicleTypeBtn icon={PickupIcon} name="pickup" history={history} />
       </div>
       <div>
-        <VehicleTypebtn icon={BigTruck} name="truck" history={history} />
-        <VehicleTypebtn icon={Motorcycle} name="motorcycle" history={history} />
+        <VehicleTypeBtn icon={BigTruck} name="truck" history={history} />
+        <VehicleTypeBtn icon={Motorcycle} name="motorcycle" history={history} />
       </div>
     </div>
   );
