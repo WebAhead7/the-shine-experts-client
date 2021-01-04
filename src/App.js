@@ -4,8 +4,11 @@ import SignUpForm from './components/SignUpForm';
 import VehicleType from './components/VehicleType';
 import WashingType from './components/WashingType';
 import BusinessLocation from './components/BusinessLocation';
+import SuccessfulOrder from './components/SuccessfulOrder';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/routes/PrivateRoute';
+
 function App() {
   return (
     <Router>
@@ -17,6 +20,7 @@ function App() {
         <Route exact path="/vehicletype" component={VehicleType} />
         <Route exact path="/washingtype" component={WashingType} />
         <Route exact path="/location" component={BusinessLocation} />
+        <Route exact path="/successfulorder" component={SuccessfulOrder} />
       </Switch>
     </Router>
   );
