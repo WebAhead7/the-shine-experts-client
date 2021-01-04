@@ -1,11 +1,11 @@
 import './Forms.css';
 import { TypeBtn } from '../buttons/index';
-import logo from '../../images/car.png';
-import { useSetRecoilState } from 'recoil';
+import { Car as Logo } from '../../images/index';
+
 import { appointmentState } from '../../atoms';
 
 const Appointments = ({ history }) => {
-  const setTime = useSetRecoilState(appointmentState);
+  const to = '/successfulorder';
   const options = [
     { label: '10:00', value: 10 },
     { label: '10:30', value: 10.5 },
@@ -22,19 +22,10 @@ const Appointments = ({ history }) => {
     { label: '16:00', value: 16 },
   ];
 
-  function PickTime(time) {
-    setTime(time);
-    history.push('/orders');
-  }
-
-  // React.useEffect(() => {
-
-  // }, [data]);
-
   return (
     <div className="card">
       <div className="logo">
-        <img className="logo" src={logo} alt="car" />
+        <img className="logo" src={Logo} alt="car" />
         <div>
           <h1>Today</h1>
           {options.map((option) => (
@@ -42,6 +33,9 @@ const Appointments = ({ history }) => {
               widthAndHeigth={50}
               name={option.label}
               state={appointmentState}
+              history={history}
+              value={option.value}
+              to={to}
             />
           ))}
         </div>
@@ -52,6 +46,9 @@ const Appointments = ({ history }) => {
               widthAndHeigth={50}
               name={option.label}
               state={appointmentState}
+              history={history}
+              value={option.value}
+              to={to}
             />
           ))}
         </div>
