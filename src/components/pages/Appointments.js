@@ -1,6 +1,5 @@
-import React from 'react';
 import './Forms.css';
-
+import { TypeBtn } from '../buttons/index';
 import logo from '../../images/car.png';
 import { useSetRecoilState } from 'recoil';
 import { appointmentState } from '../../atoms';
@@ -39,17 +38,21 @@ const Appointments = ({ history }) => {
         <div>
           <h1>Today</h1>
           {options.map((option) => (
-            <button onClick={() => PickTime(option.value)}>
-              {option.label}
-            </button>
+            <TypeBtn
+              widthAndHeigth={50}
+              name={option.label}
+              state={appointmentState}
+            />
           ))}
         </div>
         <div>
           <h1>Tomorrow</h1>
           {options.map((option) => (
-            <button onClick={() => PickTime(option.value)}>
-              {option.label}
-            </button>
+            <TypeBtn
+              widthAndHeigth={50}
+              name={option.label}
+              state={appointmentState}
+            />
           ))}
         </div>
       </div>
