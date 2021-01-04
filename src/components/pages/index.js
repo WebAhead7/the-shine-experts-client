@@ -5,8 +5,10 @@ import HomeUser from './HomeUser';
 import HomeBusiness from './HomeBusiness';
 import VehicleType from './VehicleType';
 import WashingType from './WashingType';
+import Appointments from './Appointments';
 
 export {
+  Appointments,
   Entry,
   SignInForm,
   SignUpForm,

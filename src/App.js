@@ -1,4 +1,5 @@
 import {
+  Appointments,
   Entry,
   SignInForm,
   SignUpForm,
@@ -25,6 +26,7 @@ function App() {
           component={HomeBusiness}
         />
         <Route exact path="/" component={Entry} />
+        <Route exact path="/appointments" component={Appointments} />
         <Route exact path="/vehicletype" component={VehicleType} />
         <Route exact path="/washingtype" component={WashingType} />
       </Switch>

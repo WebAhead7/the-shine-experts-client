@@ -3,11 +3,11 @@ import './Forms.css';
 
 import logo from '../../images/car.png';
 
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { typeState } from '../../atoms';
 
 const Entry = ({ history }) => {
-  const [, setType] = useRecoilState(typeState);
+  const setType = useSetRecoilState(typeState);
 
   function PickType(type) {
     setType(type);
