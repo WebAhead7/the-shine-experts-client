@@ -9,13 +9,13 @@ const SuccessfulOrder = ({ history }) => {
     <div className="card">
       <div className="logo-div">
         <div>
-          <BackBtn />
+          <BackBtn history={history} />
         </div>
         <div>
           <img className="logo" src={Logo} alt="car" />
         </div>
         <div>
-          <LogoutBtn />
+          <LogoutBtn history={history} />
         </div>
       </div>
       <div className="content-div">
