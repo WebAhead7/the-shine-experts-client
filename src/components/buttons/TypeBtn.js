@@ -1,9 +1,9 @@
 import { useSetRecoilState } from 'recoil';
 import './TypeBtn.css';
-const TypeBtn = ({ icon, name, history, to, state }) => {
+const TypeBtn = ({ icon, name, history, to, state, value }) => {
   const setType = useSetRecoilState(state);
-  const onClick = (e) => {
-    setType('');
+  const onClick = () => {
+    setType(value);
     history.push(to);
   };
 
