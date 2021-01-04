@@ -17,3 +17,6 @@
   border-radius: 10px;
   width: 100px;
 }
+.pay-btn:hover {
+  background-color: #b8b8b8;
+}
