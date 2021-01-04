@@ -1,0 +1,25 @@
+.map-div {
+  height: 50%;
+  width: 50%;
+}
+.map-img {
+  width: 400px;
+  height: 200px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+.contact-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact-btn {
+  width: 50px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  margin: 10px;
+}
+.contact-btn:hover {
+  background-color: rgb(187, 187, 187);
+}

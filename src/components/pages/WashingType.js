@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { signup } from '../../axios/users';
 import { NavLink } from 'react-router-dom';
-import logo from '../images/car.png';
-import logout from '../images/logout.png';
+import logo from '../../images/car.png';
+import logout from '../../images/logout.png';
 
 import {
   AutoCarWash,

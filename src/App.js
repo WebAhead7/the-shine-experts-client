@@ -6,6 +6,8 @@ import {
   HomeBusiness,
   VehicleType,
   WashingType,
+  BusinessLocation,
+  SuccessfulOrder,
 } from './components/pages';
 
 import { PrivateRouteBusiness, PrivateRouteUser } from './components/routes';
