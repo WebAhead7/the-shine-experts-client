@@ -1,6 +1,9 @@
+import { vehicleTypeState } from '../../atoms';
+import { useSetRecoilState } from 'recoil';
 import './VehicleTypeBtn.css';
 const VehicleTypeBtn = ({ icon, name, history }) => {
-  const onClick = () => {
+  const setVehicleType = useSetRecoilState(vehicleTypeState);
+  const onClick = (e) => {
     history.push('/washingtype');
   };
 
