@@ -1,9 +1,9 @@
 import React from 'react';
-import { logout } from '../axios/auth';
+import { logout } from '../../axios/authUser';
 const Home = ({ history }) => {
   const onClick = () => {
     logout();
-    history.push('/login');
+    history.push('/signin');
   };
   return (
     <div>

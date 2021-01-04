@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { signup } from '../axios/users';
+import { signup } from '../../axios/users';
 import { NavLink } from 'react-router-dom';
 import logo from '../images/car.png';
 import back from '../images/back.png';
@@ -13,7 +13,7 @@ import {
   Bus,
   Motorcycle,
   PickupIcon,
-} from '../images/vehicleTypes/index';
+} from '../../images/vehicleTypes/index';
 
 import './Types.css';
 

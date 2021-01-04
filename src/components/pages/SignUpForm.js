@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { signup } from '../axios/users';
+import { signup } from '../../axios/users';
 import { NavLink } from 'react-router-dom';
-import logo from '../images/car.png';
+import logo from '../../images/car.png';
 
 const SignUpForm = ({ history }) => {
   const [serverErrMsg, setServerErrMsg] = useState('');
@@ -106,7 +106,7 @@ const SignUpForm = ({ history }) => {
         <input className="submit" type="submit" placeholder="Sign Up" />
         <div>
           <p>
-            Have an Account ? <NavLink to="/login">Log In</NavLink>
+            Have an Account ? <NavLink to="/signin">Log In</NavLink>
           </p>
         </div>
       </form>

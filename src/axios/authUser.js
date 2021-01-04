@@ -1,10 +1,10 @@
 import axios from './axios';
 
-export const login = async ({ email, password }) => {
+export const loginUser = async ({ email, password }) => {
   try {
     const {
       data: { token },
-    } = await axios.post('/auth', {
+    } = await axios.post('/authUser', {
       email,
       password,
     });
@@ -31,7 +31,7 @@ export const logout = () => {
 
 export const getLoggedInUser = async () => {
   try {
-    const { data: user } = await axios.get('/auth');
+    const { data: user } = await axios.get('/authUser');
     return user;
   } catch (err) {
     throw new Error('Ops something went wrong in the server!');

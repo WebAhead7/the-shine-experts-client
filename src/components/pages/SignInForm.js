@@ -1,12 +1,20 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { login } from '../axios/auth';
+import { loginUser } from '../../axios/authUser';
+import { loginBusiness } from '../../axios/authBusiness';
 import { NavLink } from 'react-router-dom';
 import './Forms.css';
 
-import logo from '../images/car.png';
+import logo from '../../images/car.png';
+
+import { useRecoilValue } from 'recoil';
+import { typeState } from '../../atoms';
+
+import backarrow from '../../images/back.png';
 
 const SignInForm = ({ history }) => {
+  const type = useRecoilValue(typeState);
+
   const [serverErrMsg, setServerErrMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { register, errors, handleSubmit } = useForm();
@@ -14,8 +22,15 @@ const SignInForm = ({ history }) => {
     try {
       setServerErrMsg('');
       setIsLoading(true);
-      await login({ email, password });
-      history.push('/home');
+      if (type === 'user') {
+        await loginUser({ email, password });
+        history.push('/home-user');
+      }
+      if (type === 'business') {
+        await loginBusiness({ email, password });
+        history.push('/home-business');
+      }
+
       setIsLoading(false);
     } catch (err) {
       setServerErrMsg(err.message);
@@ -29,9 +44,14 @@ const SignInForm = ({ history }) => {
     }
   };
 
+  const onClick = () => history.push('/');
+
   return (
     <div className="card">
       <div className="logo">
+        <button className="backbtn" onClick={onClick}>
+          <img src={backarrow} alt="" />
+        </button>
         <img className="logo" src={logo} alt="car" />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
