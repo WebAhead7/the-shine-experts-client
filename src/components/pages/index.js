@@ -6,6 +6,8 @@ import HomeBusiness from './HomeBusiness';
 import VehicleType from './VehicleType';
 import WashingType from './WashingType';
 import Appointments from './Appointments';
+import BusinessLocation from './BusinessLocation';
+import SuccessfulOrder from './SuccessfulOrder';
 
 export {
   Appointments,
@@ -16,4 +18,6 @@ export {
   HomeBusiness,
   VehicleType,
   WashingType,
+  SuccessfulOrder,
+  BusinessLocation,
 };

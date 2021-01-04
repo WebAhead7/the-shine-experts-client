@@ -1,0 +1,7 @@
+.logoutBtn {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+.logoutBtn:hover {
+  background-color: #b8b8b8;
+}

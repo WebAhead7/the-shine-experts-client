@@ -7,6 +7,8 @@ import {
   HomeBusiness,
   VehicleType,
   WashingType,
+  BusinessLocation,
+  SuccessfulOrder,
 } from './components/pages';
 
 import { PrivateRouteBusiness, PrivateRouteUser } from './components/routes';
@@ -29,6 +31,8 @@ function App() {
         <Route exact path="/appointments" component={Appointments} />
         <Route exact path="/vehicletype" component={VehicleType} />
         <Route exact path="/washingtype" component={WashingType} />
+        <Route exact path="/location" component={BusinessLocation} />
+        <Route exact path="/successfulorder" component={SuccessfulOrder} />
       </Switch>
     </Router>
   );

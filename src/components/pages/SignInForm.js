@@ -24,7 +24,7 @@ const SignInForm = ({ history }) => {
       setIsLoading(true);
       if (type === 'user') {
         await loginUser({ email, password });
-        history.push('/home-user');
+        history.push('/vehicletype');
       }
       if (type === 'business') {
         await loginBusiness({ email, password });
