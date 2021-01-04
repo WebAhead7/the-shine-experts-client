@@ -1,6 +1,6 @@
 import { Car as Logo, Back, Logout } from '../../images/index';
 
-import { VehicleTypeBtn, LogoutBtn } from '../buttons/index';
+import { VehicleTypeBtn, LogoutBtn, BackBtn } from '../buttons/index';
 
 import {
   CarIcon,
@@ -22,9 +22,10 @@ const VehicleType = ({ history }) => {
     <div className="card">
       <div className="logo-div">
         <div>
-          <button className="backbtn" onClick={onClickBack}>
+          {/* <button className="backbtn" onClick={onClickBack}>
             <img src={Back} alt="" />
-          </button>
+          </button> */}
+          <BackBtn history={history} />
         </div>
         <div>
           <img className="logo" src={Logo} alt="car" />
