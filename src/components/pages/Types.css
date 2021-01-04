@@ -14,14 +14,14 @@
 .logout-btn:hover {
   background-color: #b8b8b8;
 }
-.VehicleTypebtn {
+.TypeBtn {
   background-color: rgb(255, 255, 255);
   height: 150px;
   width: 150px;
   border-radius: 10px;
   margin: 20px;
 }
-.VehicleTypebtn:hover {
+.TypeBtn:hover {
   background-color: #b8b8b8;
   color: rgb(0, 0, 0);
 }

@@ -1,6 +1,8 @@
-import { Car as Logo, Back, Logout } from '../../images/index';
+import { Car as Logo } from '../../images/index';
 
-import { VehicleTypeBtn, LogoutBtn, BackBtn } from '../buttons/index';
+import { TypeBtn, LogoutBtn, BackBtn } from '../buttons/index';
+
+import { vehicleTypeState } from '../../atoms';
 
 import {
   CarIcon,
@@ -14,17 +16,11 @@ import {
 import './Types.css';
 
 const VehicleType = ({ history }) => {
-  const onClickBack = () => {
-    history.goBack();
-  };
-
+  const to = '/washingtype';
   return (
     <div className="card">
       <div className="logo-div">
         <div>
-          {/* <button className="backbtn" onClick={onClickBack}>
-            <img src={Back} alt="" />
-          </button> */}
           <BackBtn history={history} />
         </div>
         <div>
@@ -35,20 +31,52 @@ const VehicleType = ({ history }) => {
         </div>
       </div>
       <div>
-        <VehicleTypeBtn icon={CarIcon} name="car" history={history} />
-        <VehicleTypeBtn icon={Bus} name="bus" history={history} />
+        <TypeBtn
+          icon={CarIcon}
+          name="car"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
+        <TypeBtn
+          icon={Bus}
+          name="bus"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
       </div>
       <div>
-        <VehicleTypeBtn
+        <TypeBtn
           icon={BiggerTruck}
           name="bigger truck"
           history={history}
+          state={vehicleTypeState}
+          to={to}
         />
-        <VehicleTypeBtn icon={PickupIcon} name="pickup" history={history} />
+        <TypeBtn
+          icon={PickupIcon}
+          name="pickup"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
       </div>
       <div>
-        <VehicleTypeBtn icon={BigTruck} name="truck" history={history} />
-        <VehicleTypeBtn icon={Motorcycle} name="motorcycle" history={history} />
+        <TypeBtn
+          icon={BigTruck}
+          name="truck"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
+        <TypeBtn
+          icon={Motorcycle}
+          name="motorcycle"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
       </div>
     </div>
   );

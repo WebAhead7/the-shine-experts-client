@@ -1,4 +1,8 @@
-import { Car as Logo, Logout } from '../../images/index';
+import { Car as Logo } from '../../images/index';
+
+import { TypeBtn, LogoutBtn, BackBtn } from '../buttons/index';
+
+import { vehicleTypeState } from '../../atoms';
 
 import {
   AutoCarWash,
@@ -8,65 +12,75 @@ import {
   Oil,
   Polishing,
 } from '../../images/washingTypes/index';
-import backarrow from '../../images/back.png';
+
 import './Types.css';
 
 const WashingType = ({ history }) => {
-  const onClick = () => {
-    history.goBack();
-  };
+  const to = '/appointments';
 
   return (
     <div className="card">
       <div className="logo-div">
         <div>
-          <button className="backbtn" onClick={onClick}>
-            <img src={backarrow} alt="" />
-          </button>
+          <BackBtn />
         </div>
         <div>
           <img className="logo" src={Logo} alt="car" />
         </div>
         <div>
-          <button className="logout-btn">
-            <img src={Logout} alt="" />
-          </button>
+          <LogoutBtn />
         </div>
       </div>
       <div>
-        <button className="VehicleTypebtn">
-          <img src={AutoCarWash} alt="" /> <h4>auto car washing</h4>
-          <h4>20$</h4>
-        </button>
-        <button className="VehicleTypebtn">
-          <img src={HandWashing} alt="" />
-          <h4>hand washing</h4>
-          <h4>50$</h4>
-        </button>
+        <TypeBtn
+          icon={AutoCarWash}
+          name="Auto car washing"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
+
+        <TypeBtn
+          icon={HandWashing}
+          name="Hand washing"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
       </div>
       <div>
-        <button className="VehicleTypebtn">
-          <img src={CleanEngine} alt="" />
-          <h4>clean Engine</h4>
-          <h4>60$</h4>
-        </button>
-        <button className="VehicleTypebtn">
-          <img src={Oil} alt="" />
-          <h4>oil changing</h4>
-          <h4>50$</h4>
-        </button>
+        <TypeBtn
+          icon={CleanEngine}
+          name="Clean engine"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
+
+        <TypeBtn
+          icon={Oil}
+          name="Oil"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
       </div>
       <div>
-        <button className="VehicleTypebtn">
-          <img src={Polishing} alt="" />
-          <h4>polishing</h4>
-          <h4>100$</h4>
-        </button>
-        <button className="VehicleTypebtn">
-          <img src={InsideCarCleaning} alt="" />
-          <h4>inside cleaning</h4>
-          <h4>40$</h4>
-        </button>
+        <TypeBtn
+          icon={Polishing}
+          name="Polishing"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
+
+        <TypeBtn
+          icon={InsideCarCleaning}
+          name="Inside cleaning"
+          history={history}
+          state={vehicleTypeState}
+          to={to}
+        />
       </div>
     </div>
   );

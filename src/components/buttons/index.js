@@ -1,4 +1,4 @@
 import LogoutBtn from './LogoutBtn';
-import VehicleTypeBtn from './VehicleTypeBtn';
+import TypeBtn from './TypeBtn';
 import BackBtn from './BackBtn';
-export { LogoutBtn, VehicleTypeBtn, BackBtn };
+export { LogoutBtn, TypeBtn, BackBtn };
