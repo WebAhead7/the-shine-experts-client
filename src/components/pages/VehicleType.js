@@ -1,10 +1,6 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { signup } from '../../axios/users';
-import { NavLink } from 'react-router-dom';
-import logo from '../../images/car.png';
-import back from '../../images/back.png';
-import logout from '../../images/logout.png';
+import { Car as Logo, Back, Logout } from '../../images/index';
+
+import VehicleTypebtn from '../buttons/VehicleTypebtn';
 
 import {
   CarIcon,
@@ -18,62 +14,38 @@ import {
 import './Types.css';
 
 const VehicleType = ({ history }) => {
-  const [serverErrMsg, setServerErrMsg] = useState('');
-  const { register, errors, handleSubmit } = useForm();
-  const onSubmit = async ({ name, email, password }) => {
-    try {
-      await signup({ name, email, password });
-      history.push('/home');
-    } catch (err) {
-      setServerErrMsg(err.message);
-    }
-  };
-
   return (
     <div className="card">
       <div className="logo-div">
         <div>
           <button className="backbtn">
-            <img src={back} alt="" />
+            <img src={Back} alt="" />
           </button>
         </div>
         <div>
-          <img className="logo" src={logo} alt="car" />
+          <img className="logo" src={Logo} alt="car" />
         </div>
         <div>
           <button className="logout-btn">
-            <img src={logout} alt="" />
+            <img src={Logout} alt="" />
           </button>
         </div>
       </div>
       <div>
-        <button className="VehicleTypebtn">
-          <img src={CarIcon} alt="" /> <h4>car</h4>
-        </button>
-        <button className="VehicleTypebtn">
-          <img src={Bus} alt="" />
-          <h4>bus</h4>
-        </button>
+        <VehicleTypebtn icon={CarIcon} name="car" history={history} />
+        <VehicleTypebtn icon={Bus} name="bus" history={history} />
       </div>
       <div>
-        <button className="VehicleTypebtn">
-          <img src={BiggerTruck} alt="biggertruck" />
-          <h4>bigger truck</h4>
-        </button>
-        <button className="VehicleTypebtn">
-          <img src={PickupIcon} alt="pickup" />
-          <h4>pickup</h4>
-        </button>
+        <VehicleTypebtn
+          icon={BiggerTruck}
+          name="bigger truck"
+          history={history}
+        />
+        <VehicleTypebtn icon={PickupIcon} name="pickup" history={history} />
       </div>
       <div>
-        <button className="VehicleTypebtn">
-          <img src={BigTruck} alt="bigtruck" />
-          <h4>truck</h4>
-        </button>
-        <button className="VehicleTypebtn">
-          <img src={Motorcycle} alt="motorcycle" />
-          <h4>motorcycle</h4>
-        </button>
+        <VehicleTypebtn icon={BigTruck} name="truck" history={history} />
+        <VehicleTypebtn icon={Motorcycle} name="motorcycle" history={history} />
       </div>
     </div>
   );
