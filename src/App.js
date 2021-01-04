@@ -1,13 +1,14 @@
-import SignInForm from './components/pages/SignInForm';
-import HomeUser from './components/pages/HomeUser';
-import HomeBusiness from './components/pages/HomeBusiness';
-import SignUpForm from './components/pages/SignUpForm';
-import VehicleType from './components/pages/VehicleType';
-import WashingType from './components/pages/WashingType';
-import Entry from './components/pages/Entry';
+import {
+  Entry,
+  SignInForm,
+  SignUpForm,
+  HomeUser,
+  HomeBusiness,
+  VehicleType,
+  WashingType,
+} from './components/pages';
 
-import PrivateRouteUser from './components/routes/PrivateRouteUser';
-import PrivateRouteBusiness from './components/routes/PrivateRouteBusiness';
+import { PrivateRouteBusiness, PrivateRouteUser } from './components/routes';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
