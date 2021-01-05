@@ -1,6 +1,3 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { NavLink } from 'react-router-dom';
 import logo from '../../images/car.png';
 import logout from '../../images/logout.png';
 import backarrow from '../../images/back.png';
@@ -14,10 +11,6 @@ import {
 } from '../../images/location/index';
 
 const BusinessLocation = ({ history }) => {
-  const [serverErrMsg, setServerErrMsg] = useState('');
-  const { register, errors, handleSubmit } = useForm();
-  const onSubmit = async ({ name, email, password }) => {};
-
   return (
     <div className="card">
       <div className="logo-div">

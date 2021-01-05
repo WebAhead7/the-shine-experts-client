@@ -1,50 +1,86 @@
 import './Forms.css';
 import { TypeBtn } from '../buttons/index';
 import { Car as Logo } from '../../images/index';
-
+import { useEffect, useState } from 'react';
 import { appointmentState } from '../../atoms';
 
-const Appointments = ({ history }) => {
-  const to = '/successfulorder';
-  const options = [
-    { label: '10:00', value: 10 },
-    { label: '10:30', value: 10.5 },
-    { label: '11:00', value: 11 },
-    { label: '11:30', value: 11.5 },
-    { label: '12:00', value: 12 },
-    { label: '12:30', value: 12.5 },
-    { label: '13:00', value: 13 },
-    { label: '13:30', value: 13.5 },
-    { label: '14:00', value: 14 },
-    { label: '14:30', value: 14.5 },
-    { label: '15:00', value: 15 },
-    { label: '15:30', value: 15.5 },
-    { label: '16:00', value: 16 },
-  ];
+import { getBusinnesAppointments } from '../../axios/businesses';
 
-  const days = ['Today', 'Tomorrow'];
+const Appointments = ({ history }) => {
+  const [appointments, setAppointments] = useState({});
+  const [serverErrMsg, setServerErrMsg] = useState('');
+  const to = '/successfulorder';
+  const freeAppointments = ['10:00', '10:30'];
+
+  let freeAppointmentsForToday = [...freeAppointments];
+  let freeAppointmentsForTomorrow = [...freeAppointments];
+
+  useEffect(() => {
+    const getAppointments = async () => {
+      try {
+        const appointments = await getBusinnesAppointments({
+          email: process.env.REACT_APP_BUSINESS_EMAIL,
+        });
+
+        setAppointments(appointments);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        freeAppointmentsForToday = freeAppointmentsForToday.filter(
+          (appointment) =>
+            appointments.today.indexOf(appointment) >= 0 ? false : true
+        );
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        freeAppointmentsForTomorrow = freeAppointmentsForTomorrow.filter(
+          (appointment) =>
+            appointments.tomorrow.indexOf(appointment) >= 0 ? false : true
+        );
+      } catch (err) {
+        setServerErrMsg(err.message);
+      }
+    };
+
+    getAppointments();
+  }, []);
+
+  if (!appointments) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div className="card">
       <div className="logo">
         <img className="logo" src={Logo} alt="car" />
 
-        {days.map((day) => (
-          <div key={day}>
-            <h1>{day}</h1>
-            {options.map((option) => (
-              <TypeBtn
-                widthAndHeigth={50}
-                name={option.label}
-                state={appointmentState}
-                history={history}
-                value={option.value}
-                to={to}
-                key={option.value}
-              />
-            ))}
-          </div>
-        ))}
+        <div>
+          <h1>Today</h1>
+          {freeAppointmentsForToday.map((appointment) => (
+            <TypeBtn
+              widthAndHeigth={50}
+              name={appointment}
+              state={appointmentState}
+              history={history}
+              value={appointment}
+              to={to}
+              key={appointment}
+            />
+          ))}
+        </div>
+
+        <div>
+          <h1>Tomorrow</h1>
+          {freeAppointmentsForTomorrow.map((appointment) => (
+            <TypeBtn
+              widthAndHeigth={50}
+              name={appointment}
+              state={appointmentState}
+              history={history}
+              value={appointment}
+              to={to}
+              key={appointment}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

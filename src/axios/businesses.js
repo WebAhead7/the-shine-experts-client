@@ -32,3 +32,15 @@ export const signup = async ({
     throw new Error('Ops something went wrong in the server!');
   }
 };
+
+export const getBusinnesAppointments = async ({ email }) => {
+  try {
+    const { data: appointments } = await axios.get(`/businesses/${email}`);
+    return appointments;
+  } catch (err) {
+    if (err.response.data) {
+      throw new Error(err.response.data.msg);
+    }
+    throw new Error('Ops something went wrong in the server!');
+  }
+};
