@@ -8,7 +8,7 @@ import WashingType from './WashingType';
 import Appointments from './Appointments';
 import BusinessLocation from './BusinessLocation';
 import SuccessfulOrder from './SuccessfulOrder';
-
+import Confirmation from './Confirmation';
 export {
   Appointments,
   Entry,
@@ -20,4 +20,5 @@ export {
   WashingType,
   SuccessfulOrder,
   BusinessLocation,
+  Confirmation,
 };

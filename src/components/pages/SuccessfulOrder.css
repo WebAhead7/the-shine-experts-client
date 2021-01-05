@@ -20,3 +20,12 @@
 .pay-btn:hover {
   background-color: #b8b8b8;
 }
+
+.thank-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  margin-bottom: 25px;
+}
