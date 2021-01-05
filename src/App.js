@@ -1,6 +1,5 @@
 import {
   Appointments,
-  Entry,
   SignInForm,
   SignUpForm,
   HomeUser,

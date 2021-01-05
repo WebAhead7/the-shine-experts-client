@@ -1,6 +1,6 @@
 import { Car as Logo } from '../../images/index';
 
-import { TypeBtn, LogoutBtn, BackBtn } from '../buttons/index';
+import { TypeBtn, LogoutBtn } from '../buttons/index';
 
 import { vehicleTypeState } from '../../atoms';
 
@@ -20,9 +20,6 @@ const VehicleType = ({ history }) => {
   return (
     <div className="card">
       <div className="logo-div">
-        {/* <div>
-          <BackBtn history={history} />
-        </div> */}
         <div>
           <img className="logo" src={Logo} alt="car" />
         </div>
