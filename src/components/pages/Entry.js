@@ -17,8 +17,6 @@ const Entry = ({ history }) => {
     <div className="card">
       <div className="logo">
         <img className="logo" src={logo} alt="car" />
-        <button onClick={() => PickType('user')}>User</button>
-        <button onClick={() => PickType('business')}>Business</button>
       </div>
     </div>
   );

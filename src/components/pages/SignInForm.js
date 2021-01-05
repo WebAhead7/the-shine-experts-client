@@ -3,11 +3,12 @@ import { useForm } from 'react-hook-form';
 import { loginUser } from '../../axios/authUser';
 import { loginBusiness } from '../../axios/authBusiness';
 import { NavLink } from 'react-router-dom';
+
 import './Forms.css';
 
 import logo from '../../images/car.png';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { typeState } from '../../atoms';
 
 import backarrow from '../../images/back.png';
@@ -43,15 +44,16 @@ const SignInForm = ({ history }) => {
       return <p className="validation">{errors[inputName].message}</p>;
     }
   };
+  const setType = useSetRecoilState(typeState);
 
+  function PickType(type) {
+    setType(type);
+  }
   const onClick = () => history.push('/');
 
   return (
     <div className="card">
       <div className="logo">
-        <button className="backbtn" onClick={onClick}>
-          <img src={backarrow} alt="" />
-        </button>
         <img className="logo" src={logo} alt="car" />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -84,7 +86,12 @@ const SignInForm = ({ history }) => {
         <br />
 
         {isLoading && <p>Loading...</p>}
-
+        <button className="type-btn" onClick={() => PickType('user')}>
+          User
+        </button>
+        <button className="type-btn" onClick={() => PickType('business')}>
+          Business
+        </button>
         <input className="submit" type="submit" placeholder="LOG IN " />
         <div>
           <p>

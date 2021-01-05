@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/signin" component={SignInForm} />
+        <Route exact path="/" component={SignInForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <PrivateRouteUser exact path="/home-user" component={HomeUser} />
         <PrivateRouteBusiness
@@ -27,7 +27,6 @@ function App() {
           path="/home-business"
           component={HomeBusiness}
         />
-        <Route exact path="/" component={Entry} />
         <Route exact path="/appointments" component={Appointments} />
         <Route exact path="/vehicletype" component={VehicleType} />
         <Route exact path="/washingtype" component={WashingType} />
