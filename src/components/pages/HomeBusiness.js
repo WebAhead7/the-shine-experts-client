@@ -3,7 +3,7 @@ import { logout } from '../../axios/authBusiness';
 const Home = ({ history }) => {
   const onClick = () => {
     logout();
-    history.push('/signin');
+    history.push('/');
   };
   return (
     <div>

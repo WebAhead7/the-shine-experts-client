@@ -22,36 +22,29 @@ const Appointments = ({ history }) => {
     { label: '16:00', value: 16 },
   ];
 
+  const days = ['Today', 'Tomorrow'];
+
   return (
     <div className="card">
       <div className="logo">
         <img className="logo" src={Logo} alt="car" />
-        <div>
-          <h1>Today</h1>
-          {options.map((option) => (
-            <TypeBtn
-              widthAndHeigth={50}
-              name={option.label}
-              state={appointmentState}
-              history={history}
-              value={option.value}
-              to={to}
-            />
-          ))}
-        </div>
-        <div>
-          <h1>Tomorrow</h1>
-          {options.map((option) => (
-            <TypeBtn
-              widthAndHeigth={50}
-              name={option.label}
-              state={appointmentState}
-              history={history}
-              value={option.value}
-              to={to}
-            />
-          ))}
-        </div>
+
+        {days.map((day) => (
+          <div key={day}>
+            <h1>{day}</h1>
+            {options.map((option) => (
+              <TypeBtn
+                widthAndHeigth={50}
+                name={option.label}
+                state={appointmentState}
+                history={history}
+                value={option.value}
+                to={to}
+                key={option.value}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

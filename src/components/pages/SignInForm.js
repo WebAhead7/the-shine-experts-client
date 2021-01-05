@@ -6,12 +6,10 @@ import { NavLink } from 'react-router-dom';
 
 import './Forms.css';
 
-import logo from '../../images/car.png';
+import { Car as Logo } from '../../images/index';
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { typeState } from '../../atoms';
-
-import backarrow from '../../images/back.png';
 
 const SignInForm = ({ history }) => {
   const type = useRecoilValue(typeState);
@@ -44,17 +42,40 @@ const SignInForm = ({ history }) => {
       return <p className="validation">{errors[inputName].message}</p>;
     }
   };
+
   const setType = useSetRecoilState(typeState);
 
-  function PickType(type) {
-    setType(type);
-  }
-  const onClick = () => history.push('/');
+  const changeBodyColor = (type) => {
+    const body = document.querySelector('body');
+    const userBackgroud =
+      'linear-gradient(to right, #002027, #c471ed, #002027)';
+    const businessBackground =
+      'linear-gradient(to right, #002027, #2b1138, #002027)';
+    switch (type) {
+      case 'user': {
+        body.style.background = userBackgroud;
+        break;
+      }
+
+      case 'business': {
+        body.style.background = businessBackground;
+        break;
+      }
+      default:
+        break;
+    }
+  };
+
+  const onClick = (e) => {
+    e.preventDefault();
+    setType(e.target.value);
+    changeBodyColor(e.target.value);
+  };
 
   return (
     <div className="card">
       <div className="logo">
-        <img className="logo" src={logo} alt="car" />
+        <img className="logo" src={Logo} alt="car" />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -86,10 +107,10 @@ const SignInForm = ({ history }) => {
         <br />
 
         {isLoading && <p>Loading...</p>}
-        <button className="type-btn" onClick={() => PickType('user')}>
+        <button className="type-btn" onClick={onClick} value="user">
           User
         </button>
-        <button className="type-btn" onClick={() => PickType('business')}>
+        <button className="type-btn" onClick={onClick} value="business">
           Business
         </button>
         <input className="submit" type="submit" placeholder="LOG IN " />
