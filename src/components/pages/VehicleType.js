@@ -20,9 +20,9 @@ const VehicleType = ({ history }) => {
   return (
     <div className="card">
       <div className="logo-div">
-        <div>
+        {/* <div>
           <BackBtn history={history} />
-        </div>
+        </div> */}
         <div>
           <img className="logo" src={Logo} alt="car" />
         </div>

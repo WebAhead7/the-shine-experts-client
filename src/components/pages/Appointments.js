@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './Forms.css';
-import { TypeBtn } from '../buttons/index';
+import { TypeBtn, LogoutBtn, BackBtn } from '../buttons/index';
 import { Car as Logo } from '../../images/index';
 import { useEffect, useState } from 'react';
 import { appointmentState } from '../../atoms';
@@ -15,6 +16,12 @@ const Appointments = ({ history }) => {
   let freeAppointmentsForToday = [...freeAppointments];
   let freeAppointmentsForTomorrow = [...freeAppointments];
 
+  const filterAvailableAppointments = (freeAppointments, takenAppointments) => {
+    freeAppointments = freeAppointments.filter((appointment) =>
+      takenAppointments.indexOf(appointment) >= 0 ? false : true
+    );
+  };
+
   useEffect(() => {
     const getAppointments = async () => {
       try {
@@ -24,16 +31,14 @@ const Appointments = ({ history }) => {
 
         setAppointments(appointments);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        freeAppointmentsForToday = freeAppointmentsForToday.filter(
-          (appointment) =>
-            appointments.today.indexOf(appointment) >= 0 ? false : true
+        filterAvailableAppointments(
+          freeAppointmentsForToday,
+          appointments.today
         );
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        freeAppointmentsForTomorrow = freeAppointmentsForTomorrow.filter(
-          (appointment) =>
-            appointments.tomorrow.indexOf(appointment) >= 0 ? false : true
+        filterAvailableAppointments(
+          freeAppointmentsForTomorrow,
+          appointments.tomorrow
         );
       } catch (err) {
         setServerErrMsg(err.message);
@@ -49,38 +54,46 @@ const Appointments = ({ history }) => {
 
   return (
     <div className="card">
-      <div className="logo">
-        <img className="logo" src={Logo} alt="car" />
-
+      <div className="logo-div">
         <div>
-          <h1>Today</h1>
-          {freeAppointmentsForToday.map((appointment) => (
-            <TypeBtn
-              widthAndHeigth={50}
-              name={appointment}
-              state={appointmentState}
-              history={history}
-              value={appointment}
-              to={to}
-              key={appointment}
-            />
-          ))}
+          <BackBtn history={history} />
         </div>
-
         <div>
-          <h1>Tomorrow</h1>
-          {freeAppointmentsForTomorrow.map((appointment) => (
-            <TypeBtn
-              widthAndHeigth={50}
-              name={appointment}
-              state={appointmentState}
-              history={history}
-              value={appointment}
-              to={to}
-              key={appointment}
-            />
-          ))}
+          <img className="logo" src={Logo} alt="car" />
         </div>
+        <div>
+          <LogoutBtn history={history} />
+        </div>
+      </div>
+
+      <div>
+        <h1>Today</h1>
+        {freeAppointmentsForToday.map((appointment) => (
+          <TypeBtn
+            widthAndHeigth={50}
+            name={appointment}
+            state={appointmentState}
+            history={history}
+            value={appointment}
+            to={to}
+            key={appointment}
+          />
+        ))}
+      </div>
+
+      <div>
+        <h1>Tomorrow</h1>
+        {freeAppointmentsForTomorrow.map((appointment) => (
+          <TypeBtn
+            widthAndHeigth={50}
+            name={appointment}
+            state={appointmentState}
+            history={history}
+            value={appointment}
+            to={to}
+            key={appointment}
+          />
+        ))}
       </div>
     </div>
   );
