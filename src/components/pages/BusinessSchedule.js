@@ -2,7 +2,8 @@ import { Car as Logo } from '../../images/index';
 import { BackBtn, LogoutBtn } from '../buttons/index';
 import './Types.css';
 import './SuccessfulOrder.css';
-import { vehicleTypeState } from '../../axios/orders';
+import { getOrdersByBusinessEmail } from '../../axios/orders';
+import { Useffect } from 'react';
 
 const BusinessSchedule = ({ history }) => {
   const onClick = () => {
