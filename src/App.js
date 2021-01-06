@@ -47,7 +47,7 @@ function App() {
         <Route exact path="/location" component={BusinessLocation} />
         <Route exact path="/successfulorder" component={SuccessfulOrder} />
         <Route exact path="/confirmation" component={Confirmation} />
-        <Route exact path="/Schedule" component={BusinessSchedule} />
+        <Route exact path="/schedule" component={BusinessSchedule} />
       </Switch>
     </Router>
   );

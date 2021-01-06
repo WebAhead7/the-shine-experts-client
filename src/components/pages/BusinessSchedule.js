@@ -3,9 +3,12 @@ import { BackBtn, LogoutBtn } from '../buttons/index';
 import './Types.css';
 import './SuccessfulOrder.css';
 import { getOrdersByBusinessEmail } from '../../axios/orders';
-import { Useffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const BusinessSchedule = ({ history }) => {
+  const [loading, setLoading] = useState(true);
+  const [serverErrMsg, setServerErrMsg] = useState('');
+  const [orders, setOrders] = useState('');
   const onClick = () => {
     history.push('/confirmation');
   };
@@ -17,6 +20,32 @@ const BusinessSchedule = ({ history }) => {
     orderType: 'Hand Wash',
     tomorrowOrToday: 'today',
   };
+
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        setServerErrMsg('');
+        setLoading(true);
+        const orders = await getOrdersByBusinessEmail({
+          businessEmail: process.env.REACT_APP_BUSINESS_EMAIL,
+        });
+        setOrders(orders);
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        setServerErrMsg(err.message);
+      }
+    };
+    getOrders();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (serverErrMsg) {
+    return <div>{serverErrMsg}</div>;
+  }
+
   return (
     <div className="card">
       <div className="logo-div">
@@ -30,11 +59,12 @@ const BusinessSchedule = ({ history }) => {
           <LogoutBtn history={history} />
         </div>
       </div>
-      <div className="content-div">
-        <div className="Appointments-div">
-          {Appointment.businessEmail},{Appointment.orderDate}
-        </div>
-      </div>
+
+      {/* <div>
+        {orders.map((order) => (
+          <div>{order.businessEmail}</div>
+        ))}
+      </div> */}
     </div>
   );
 };

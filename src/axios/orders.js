@@ -28,7 +28,8 @@ export const makeOrder = async ({
 
 export const getOrdersByBusinessEmail = async ({ businessEmail }) => {
   try {
-    const { data: orders } = await axios.post(`/orders/${businessEmail}`);
+    const { data: orders } = await axios.get(`/orders/${businessEmail}`);
+    console.log(orders);
     return orders;
   } catch (err) {
     if (err.response) {
