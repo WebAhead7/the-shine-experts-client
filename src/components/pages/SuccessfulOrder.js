@@ -2,7 +2,7 @@ import { Car as Logo } from '../../images/index';
 import { BackBtn, LogoutBtn } from '../buttons/index';
 import './Types.css';
 import './SuccessfulOrder.css';
-import { Barcode, Cash, Visa, Cancel } from '../../images/order/index.js';
+import { Barcode, Cash, Cancel } from '../../images/order/index.js';
 
 const SuccessfulOrder = ({ history }) => {
   const onClick = () => {
@@ -29,10 +29,6 @@ const SuccessfulOrder = ({ history }) => {
           <h4>order number :23456789</h4>
         </div>
         <div className="pay-btns-div">
-          {/* <button className="pay-btn">
-            <img src={Visa} alt="" />
-            Pay Now
-          </button> */}
           <button className="pay-btn" onClick={onClick}>
             <img src={Cash} alt="" />
             Pay Cash
