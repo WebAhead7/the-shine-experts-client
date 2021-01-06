@@ -31,6 +31,7 @@ const VehicleType = ({ history }) => {
         <TypeBtn
           icon={CarIcon}
           name="car"
+          value="Car"
           history={history}
           state={vehicleTypeState}
           to={to}
@@ -38,6 +39,7 @@ const VehicleType = ({ history }) => {
         <TypeBtn
           icon={Bus}
           name="bus"
+          value="Bus"
           history={history}
           state={vehicleTypeState}
           to={to}
@@ -47,6 +49,7 @@ const VehicleType = ({ history }) => {
         <TypeBtn
           icon={BiggerTruck}
           name="bigger truck"
+          value="Bigger truck"
           history={history}
           state={vehicleTypeState}
           to={to}
@@ -54,6 +57,7 @@ const VehicleType = ({ history }) => {
         <TypeBtn
           icon={PickupIcon}
           name="pickup"
+          value="Pickup"
           history={history}
           state={vehicleTypeState}
           to={to}
@@ -63,6 +67,7 @@ const VehicleType = ({ history }) => {
         <TypeBtn
           icon={BigTruck}
           name="truck"
+          value="Truck"
           history={history}
           state={vehicleTypeState}
           to={to}
@@ -70,6 +75,7 @@ const VehicleType = ({ history }) => {
         <TypeBtn
           icon={Motorcycle}
           name="motorcycle"
+          value="Motorcyle"
           history={history}
           state={vehicleTypeState}
           to={to}

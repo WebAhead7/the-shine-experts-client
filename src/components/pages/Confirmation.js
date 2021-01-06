@@ -31,17 +31,17 @@ const Confirmation = ({ history }) => {
         console.log(appointment);
         console.log(businessEmail, orderDate, tomorrowOrToday, orderType);
 
-        await makeOrder({
+        const res = await makeOrder({
           businessEmail,
           orderDate,
           tomorrowOrToday,
           orderType,
         });
-
+        console.log(res);
         setLoading(false);
       } catch (err) {
         setLoading(false);
-        setServerErrMsg(err);
+        setServerErrMsg(err.message);
       }
     };
     makeOrderAPI();
@@ -75,7 +75,8 @@ const Confirmation = ({ history }) => {
           <h4>order number :23456789</h4>
           <h4>Vehicle type : {vehicleType}</h4>
           <h4>Wash type : {washType}</h4>
-          <h4>Appointment : {appointment}</h4>
+          <h4>Appointment hour : {appointment.hour}</h4>
+          <h4>Appointment day : {appointment.day}</h4>
         </div>
         <div className="thank-div">
           <h3>Thank you for choosing our business!!</h3>

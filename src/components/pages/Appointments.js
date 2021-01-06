@@ -8,39 +8,57 @@ import { appointmentState } from '../../atoms';
 import { getBusinnesAppointments } from '../../axios/businesses';
 
 const Appointments = ({ history }) => {
-  const [appointments, setAppointments] = useState({});
+  const [loading, setLoading] = useState(true);
   const [serverErrMsg, setServerErrMsg] = useState('');
   const to = '/successfulorder';
-  const freeAppointments = ['10:00', '10:30'];
+  const freeAppointments = ['10:00', '10:30', '11:00', '11:30', '12:00'];
 
-  let freeAppointmentsForToday = [...freeAppointments];
-  let freeAppointmentsForTomorrow = [...freeAppointments];
+  const [freeAppointmentsForToday, SetFreeAppointmentsForToday] = useState([
+    ...freeAppointments,
+  ]);
+  const [
+    freeAppointmentsForTomorrow,
+    SetFreeAppointmentsForTomorrow,
+  ] = useState([...freeAppointments]);
 
-  const filterAvailableAppointments = (freeAppointments, takenAppointments) => {
-    freeAppointments = freeAppointments.filter((appointment) =>
-      takenAppointments.indexOf(appointment) >= 0 ? false : true
+  const filterAvailableAppointments = (
+    freeAppointments,
+    takenAppointments,
+    setState
+  ) => {
+    setState(
+      freeAppointments.filter((appointment) =>
+        takenAppointments.indexOf(appointment) >= 0 ? false : true
+      )
     );
   };
 
   useEffect(() => {
     const getAppointments = async () => {
       try {
+        setLoading(true);
         const appointments = await getBusinnesAppointments({
           email: process.env.REACT_APP_BUSINESS_EMAIL,
         });
 
-        setAppointments(appointments);
+        console.log(appointments.today);
 
         filterAvailableAppointments(
           freeAppointmentsForToday,
-          appointments.today
+          appointments.today,
+          SetFreeAppointmentsForToday
         );
+
+        console.log(freeAppointmentsForToday);
 
         filterAvailableAppointments(
           freeAppointmentsForTomorrow,
-          appointments.tomorrow
+          appointments.tomorrow,
+          SetFreeAppointmentsForTomorrow
         );
+        setLoading(false);
       } catch (err) {
+        setLoading(false);
         setServerErrMsg(err.message);
       }
     };
@@ -48,8 +66,11 @@ const Appointments = ({ history }) => {
     getAppointments();
   }, []);
 
-  if (!appointments) {
-    return <h1>Loading...</h1>;
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (serverErrMsg) {
+    return <div>{serverErrMsg}</div>;
   }
 
   return (
