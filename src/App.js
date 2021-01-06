@@ -9,6 +9,7 @@ import {
   BusinessLocation,
   SuccessfulOrder,
   Confirmation,
+  BusinessSchedule,
 } from './components/pages';
 
 import { PrivateRouteBusiness, PrivateRouteUser } from './components/routes';
@@ -46,6 +47,7 @@ function App() {
         <Route exact path="/location" component={BusinessLocation} />
         <Route exact path="/successfulorder" component={SuccessfulOrder} />
         <Route exact path="/confirmation" component={Confirmation} />
+        <Route exact path="/Schedule" component={BusinessSchedule} />
       </Switch>
     </Router>
   );
