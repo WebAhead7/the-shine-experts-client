@@ -15,7 +15,7 @@ export const signup = async ({ name, email, phonenumber, password }) => {
     axios.defaults.headers.common['x-auth-token'] = token;
   } catch (err) {
     if (err.response) {
-      if (err.response.data) {
+      if (err.response.data.msg) {
         throw new Error(err.response.data.msg);
       }
       if (err.response.data.errors) {

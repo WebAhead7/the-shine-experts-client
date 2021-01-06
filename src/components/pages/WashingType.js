@@ -2,7 +2,7 @@ import { Car as Logo } from '../../images/index';
 
 import { TypeBtn, LogoutBtn, BackBtn } from '../buttons/index';
 
-import { vehicleTypeState } from '../../atoms';
+import { washTypeState } from '../../atoms';
 
 import {
   AutoCarWash,
@@ -36,7 +36,7 @@ const WashingType = ({ history }) => {
           icon={AutoCarWash}
           name="Auto car washing"
           history={history}
-          state={vehicleTypeState}
+          state={washTypeState}
           to={to}
         />
 
@@ -44,7 +44,7 @@ const WashingType = ({ history }) => {
           icon={HandWashing}
           name="Hand washing"
           history={history}
-          state={vehicleTypeState}
+          state={washTypeState}
           to={to}
         />
       </div>
@@ -53,7 +53,7 @@ const WashingType = ({ history }) => {
           icon={CleanEngine}
           name="Clean engine"
           history={history}
-          state={vehicleTypeState}
+          state={washTypeState}
           to={to}
         />
 
@@ -61,7 +61,7 @@ const WashingType = ({ history }) => {
           icon={Oil}
           name="Oil"
           history={history}
-          state={vehicleTypeState}
+          state={washTypeState}
           to={to}
         />
       </div>
@@ -70,7 +70,7 @@ const WashingType = ({ history }) => {
           icon={Polishing}
           name="Polishing"
           history={history}
-          state={vehicleTypeState}
+          state={washTypeState}
           to={to}
         />
 
@@ -78,7 +78,7 @@ const WashingType = ({ history }) => {
           icon={InsideCarCleaning}
           name="Inside cleaning"
           history={history}
-          state={vehicleTypeState}
+          state={washTypeState}
           to={to}
         />
       </div>

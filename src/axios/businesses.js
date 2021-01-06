@@ -38,7 +38,7 @@ export const getBusinnesAppointments = async ({ email }) => {
     const { data: appointments } = await axios.get(`/businesses/${email}`);
     return appointments;
   } catch (err) {
-    if (err.response.data) {
+    if (err.response) {
       throw new Error(err.response.data.msg);
     }
     throw new Error('Ops something went wrong in the server!');

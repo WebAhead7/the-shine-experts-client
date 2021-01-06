@@ -17,5 +17,8 @@ export const washTypeState = atom({
 
 export const appointmentState = atom({
   key: 'appointment',
-  default: '',
+  default: {
+    day: '',
+    hour: '',
+  },
 });

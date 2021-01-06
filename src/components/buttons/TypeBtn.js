@@ -3,7 +3,7 @@ import './TypeBtn.css';
 const TypeBtn = ({ icon, name, history, to, state, value, widthAndHeigth }) => {
   const setType = useSetRecoilState(state);
   const onClick = () => {
-    setType(value);
+    setType(name);
     history.push(to);
   };
 

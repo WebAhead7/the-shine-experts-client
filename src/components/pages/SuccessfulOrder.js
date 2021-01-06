@@ -5,6 +5,10 @@ import './SuccessfulOrder.css';
 import { Barcode, Cash, Visa, Cancel } from '../../images/order/index.js';
 
 const SuccessfulOrder = ({ history }) => {
+  const onClick = () => {
+    history.push('/confirmation');
+  };
+
   return (
     <div className="card">
       <div className="logo-div">
@@ -25,11 +29,11 @@ const SuccessfulOrder = ({ history }) => {
           <h4>order number :23456789</h4>
         </div>
         <div className="pay-btns-div">
-          <button className="pay-btn">
+          {/* <button className="pay-btn">
             <img src={Visa} alt="" />
             Pay Now
-          </button>
-          <button className="pay-btn">
+          </button> */}
+          <button className="pay-btn" onClick={onClick}>
             <img src={Cash} alt="" />
             Pay Cash
           </button>
