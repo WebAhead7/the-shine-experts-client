@@ -41,15 +41,11 @@ const Appointments = ({ history }) => {
           email: process.env.REACT_APP_BUSINESS_EMAIL,
         });
 
-        console.log(appointments.today);
-
         filterAvailableAppointments(
           freeAppointmentsForToday,
           appointments.today,
           SetFreeAppointmentsForToday
         );
-
-        console.log(freeAppointmentsForToday);
 
         filterAvailableAppointments(
           freeAppointmentsForTomorrow,

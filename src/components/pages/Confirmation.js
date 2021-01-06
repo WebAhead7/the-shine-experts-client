@@ -28,16 +28,13 @@ const Confirmation = ({ history }) => {
         const orderDate = appointment.hour;
         const tomorrowOrToday = appointment.day;
 
-        console.log(appointment);
-        console.log(businessEmail, orderDate, tomorrowOrToday, orderType);
-
-        const res = await makeOrder({
+        await makeOrder({
           businessEmail,
           orderDate,
           tomorrowOrToday,
           orderType,
         });
-        console.log(res);
+
         setLoading(false);
       } catch (err) {
         setLoading(false);
