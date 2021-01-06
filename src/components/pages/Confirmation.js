@@ -21,30 +21,38 @@ const Confirmation = ({ history }) => {
   useEffect(() => {
     const makeOrderAPI = async () => {
       try {
+        setServerErrMsg('');
         setLoading(true);
         const businessEmail = process.env.REACT_APP_BUSINESS_EMAIL;
+        const orderType = washType;
         const orderDate = appointment.hour;
         const tomorrowOrToday = appointment.day;
-        const orderType = [washType];
+
+        console.log(appointment);
+        console.log(businessEmail, orderDate, tomorrowOrToday, orderType);
+
         await makeOrder({
           businessEmail,
           orderDate,
           tomorrowOrToday,
           orderType,
         });
+
         setLoading(false);
       } catch (err) {
         setLoading(false);
-        setServerErrMsg(err.message);
+        setServerErrMsg(err);
       }
     };
     makeOrderAPI();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
     return <div>Loading...</div>;
-  } else if (serverErrMsg) {
-    <div>{serverErrMsg}</div>;
+  }
+  if (serverErrMsg) {
+    return <div>{serverErrMsg}</div>;
   }
 
   return (

@@ -35,6 +35,7 @@ const WashingType = ({ history }) => {
         <TypeBtn
           icon={AutoCarWash}
           name="Auto car washing"
+          value="Auto car washing"
           history={history}
           state={washTypeState}
           to={to}
@@ -43,6 +44,7 @@ const WashingType = ({ history }) => {
         <TypeBtn
           icon={HandWashing}
           name="Hand washing"
+          value="Hand washing"
           history={history}
           state={washTypeState}
           to={to}
@@ -52,6 +54,7 @@ const WashingType = ({ history }) => {
         <TypeBtn
           icon={CleanEngine}
           name="Clean engine"
+          value="Clean engine"
           history={history}
           state={washTypeState}
           to={to}
@@ -60,6 +63,7 @@ const WashingType = ({ history }) => {
         <TypeBtn
           icon={Oil}
           name="Oil"
+          value="Oil change"
           history={history}
           state={washTypeState}
           to={to}
@@ -69,6 +73,7 @@ const WashingType = ({ history }) => {
         <TypeBtn
           icon={Polishing}
           name="Polishing"
+          value="Polishing"
           history={history}
           state={washTypeState}
           to={to}
@@ -77,6 +82,7 @@ const WashingType = ({ history }) => {
         <TypeBtn
           icon={InsideCarCleaning}
           name="Inside cleaning"
+          value="Inside cleaning"
           history={history}
           state={washTypeState}
           to={to}
