@@ -11,7 +11,32 @@
 }
 
 .logo {
-  width: 350px;
+  width: 320px;
   height: auto;
-  margin-bottom: -60px;
+  margin-bottom: -50px;
+  margin-top: -10px;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    display: unset;
+    margin: 0px;
+  }
+  .card {
+    width: unset;
+    border-radius: 0px;
+    min-height: 100vh;
+    padding: 0px;
+    position: relative;
+  }
+  .input {
+    min-height: 35px;
+  }
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0px !important;
+  }
 }
