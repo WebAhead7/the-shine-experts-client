@@ -4,7 +4,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 10vh;
+  margin-top: 2vh;
   background: #002027;
   background: linear-gradient(to right, #002027, #c471ed, #002027);
   background: linear-gradient(to right, #002027, #c471ed, #002027);
@@ -17,6 +17,8 @@ form {
   align-items: center;
   justify-content: center;
   margin-top: 200px;
+  max-height: 400px;
+  margin-top: 150px;
 }
 .card {
   display: flex;
@@ -28,6 +30,7 @@ form {
   border-radius: 10px;
   height: 90vh;
   width: 100%;
+  max-height: 600px;
   -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
@@ -41,6 +44,8 @@ form {
   box-sizing: border-box;
   border-radius: 5px;
   padding: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
 }
 .submit {
   font-size: 18px;
@@ -51,7 +56,7 @@ form {
   padding: 5px;
   width: 50%;
   height: 80%;
-  margin-top: 20%;
+  margin-top: 10%;
   transition-duration: 0.4s;
   cursor: pointer;
 }
@@ -67,6 +72,9 @@ form {
 
 .validation {
   color: #bf1650;
+  max-height: 20px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .validation::before {
@@ -74,19 +82,27 @@ form {
   content: '⚠ ';
 }
 
+.type-btn-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .type-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   height: 30px;
   min-width: 150px;
-  margin: 5px 10px;
-  background-color: rgba(255, 255, 255);
-  border-radius: 5px;
+  margin: 20px 0px;
+  border-radius: 2px;
   transition: 0.5s;
   cursor: pointer;
+  background-color: rgba(192, 192, 192, 0.5);
+  border: none;
 }
-.type-btn:hover {
-  background-color: #000000;
-  color: white;
-}
+
 .type-btn:focus {
   background-color: #000000;
   color: white;

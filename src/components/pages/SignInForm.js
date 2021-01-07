@@ -77,7 +77,16 @@ const SignInForm = ({ history }) => {
       <div className="logo">
         <img className="logo" src={Logo} alt="car" />
       </div>
+
       <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="type-btn-div">
+          <button className="type-btn" onClick={onClick} value="user">
+            User
+          </button>
+          <button className="type-btn" onClick={onClick} value="business">
+            Business
+          </button>
+        </div>
         <input
           className="input"
           type="email"
@@ -107,12 +116,7 @@ const SignInForm = ({ history }) => {
         <br />
 
         {isLoading && <p>Loading...</p>}
-        <button className="type-btn" onClick={onClick} value="user">
-          User
-        </button>
-        <button className="type-btn" onClick={onClick} value="business">
-          Business
-        </button>
+
         <input className="submit" type="submit" placeholder="LOG IN " />
         <div>
           <p>
