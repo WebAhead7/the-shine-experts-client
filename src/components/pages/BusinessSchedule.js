@@ -9,17 +9,6 @@ const BusinessSchedule = ({ history }) => {
   const [loading, setLoading] = useState(true);
   const [serverErrMsg, setServerErrMsg] = useState('');
   const [orders, setOrders] = useState('');
-  const onClick = () => {
-    history.push('/confirmation');
-  };
-
-  const Appointment = {
-    userEmail: 'ahmad@gmail.com',
-    businessEmail: 'TheShineExperts@gmail.com',
-    orderDate: '10:00',
-    orderType: 'Hand Wash',
-    tomorrowOrToday: 'today',
-  };
 
   useEffect(() => {
     const getOrders = async () => {
@@ -29,7 +18,6 @@ const BusinessSchedule = ({ history }) => {
         const { orders } = await getOrdersByBusinessEmail({
           businessEmail: process.env.REACT_APP_BUSINESS_EMAIL,
         });
-        console.log(orders);
         setOrders(orders);
         setLoading(false);
       } catch (err) {
@@ -60,6 +48,7 @@ const BusinessSchedule = ({ history }) => {
           <LogoutBtn history={history} />
         </div>
       </div>
+      <p>Orders</p>
       {orders.map(({ userEmail, orderDate, orderType, tomorrowOrToday }) => (
         <div key={userEmail}>
           <div>User email : {userEmail}</div>
