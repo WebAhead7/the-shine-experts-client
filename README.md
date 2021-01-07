@@ -1,4 +1,4 @@
-# The Shine Experts-
+# The Shine Experts - FRONTEND
 
 <br />
 
@@ -28,9 +28,9 @@
 - Don't have much time to wash your car?
 - it's hard to get a specific time to wash your car?
  
-
-
-
+<p align="center">
+  <img src="./src/images/wash1.jpg" width=720px height=360px />
+</p>
 ## Getting Started:
 - Creatre an account .
 - Log in to your account .
