@@ -3,7 +3,7 @@
 <br />
 
 <p align="center">
-  <img src="./src/images/wash.jpg" width=1080px height=360px />
+  <img src="./src/images/wash1.jpg" width=720px height=360px />
 </p>
 
   <p align="center">
@@ -29,7 +29,7 @@
 - it's hard to get a specific time to wash your car?
  
 <p align="center">
-  <img src="./src/images/wash1.jpg" width=720px height=360px />
+  <img src="./src/images/wash.jpg" width=720px height=360px />
 </p>
 ## Getting Started:
 - Creatre an account .
