@@ -26,9 +26,10 @@ const BusinessSchedule = ({ history }) => {
       try {
         setServerErrMsg('');
         setLoading(true);
-        const orders = await getOrdersByBusinessEmail({
+        const { orders } = await getOrdersByBusinessEmail({
           businessEmail: process.env.REACT_APP_BUSINESS_EMAIL,
         });
+        console.log(orders);
         setOrders(orders);
         setLoading(false);
       } catch (err) {
@@ -59,12 +60,15 @@ const BusinessSchedule = ({ history }) => {
           <LogoutBtn history={history} />
         </div>
       </div>
-
-      {/* <div>
-        {orders.map((order) => (
-          <div>{order.businessEmail}</div>
-        ))}
-      </div> */}
+      {orders.map(({ userEmail, orderDate, orderType, tomorrowOrToday }) => (
+        <div key={userEmail}>
+          <div>User email : {userEmail}</div>
+          <div>Order date : {orderDate}</div>
+          <div>Order type : {orderType}</div>
+          <div>Order day : {tomorrowOrToday}</div>
+          <p>-----------------</p>
+        </div>
+      ))}
     </div>
   );
 };
