@@ -3,11 +3,11 @@
 <br />
 
 <p align="center">
-  <img src="/wash.jpg" width=1080px height=360px />
+  <img src="./src/images/wash.jpg" width=1080px height=360px />
 </p>
 
   <p align="center">
-    <a href="https://drworkout123.netlify.app/
+    <a href="https://the-shine-experts.netlify.app/
 " ><strong>Check our website »</strong></a>
   </p>
 
