@@ -23,7 +23,7 @@ const SignUpForm = ({ history }) => {
       setServerErrMsg('');
       setIsLoading(true);
       await signup({ name, email, phonenumber, password });
-      history.push('/home');
+      history.push('/vehicletype');
       setIsLoading(false);
     } catch (err) {
       setServerErrMsg(err.message);
