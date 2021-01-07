@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { getLoggedInBusiness } from '../../axios/authBusiness';
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRouteBusiness = ({ component: Component, ...rest }) => {
   const [info, setInfo] = useState({
     auth: false,
     loading: true,
@@ -60,4 +60,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-export default PrivateRoute;
+export default PrivateRouteBusiness;

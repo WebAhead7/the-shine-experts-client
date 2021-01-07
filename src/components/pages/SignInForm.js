@@ -21,13 +21,14 @@ const SignInForm = ({ history }) => {
     try {
       setServerErrMsg('');
       setIsLoading(true);
+
       if (type === 'user') {
         await loginUser({ email, password });
         history.push('/vehicletype');
       }
       if (type === 'business') {
         await loginBusiness({ email, password });
-        history.push('/home-business');
+        history.push('/schedule');
       }
 
       setIsLoading(false);
