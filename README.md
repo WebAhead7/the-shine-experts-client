@@ -1,4 +1,4 @@
-# The Shine Experts - FRONTEND
+# The Shine Experts 
 
 <br />
 
