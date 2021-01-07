@@ -26,7 +26,8 @@
 ## About The Project
 - Your car is Dirty? 
 - Don't have much time to wash your car?
-- it's hard to get a specific time to wash your car?
+- it's hard to get a specific time to wash your car at car wash?
+- Our app lets you choose the time and the service as you like to make it easy for you to get the job done without changing your daily schedule . 
  
 <p align="center">
   <img src="./src/images/wash.jpg" width=720px height=360px />
