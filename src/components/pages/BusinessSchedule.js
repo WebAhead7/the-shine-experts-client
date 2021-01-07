@@ -50,7 +50,7 @@ const BusinessSchedule = ({ history }) => {
       </div>
       <p>Orders</p>
       {orders.map(({ userEmail, orderDate, orderType, tomorrowOrToday }) => (
-        <div key={userEmail}>
+        <div key={Math.random()}>
           <div>User email : {userEmail}</div>
           <div>Order date : {orderDate}</div>
           <div>Order type : {orderType}</div>

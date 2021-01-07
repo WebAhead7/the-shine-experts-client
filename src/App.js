@@ -41,13 +41,12 @@ function App() {
           path="/home-business"
           component={HomeBusiness}
         />
-        <Route exact path="/appointments" component={Appointments} />
-        <Route exact path="/vehicletype" component={VehicleType} />
-        <Route exact path="/washingtype" component={WashingType} />
-        <Route exact path="/location" component={BusinessLocation} />
-        <Route exact path="/successfulorder" component={SuccessfulOrder} />
-        <Route exact path="/confirmation" component={Confirmation} />
-        <Route exact path="/schedule" component={BusinessSchedule} />
+
+        <PrivateRouteBusiness
+          exact
+          path="/schedule"
+          component={BusinessSchedule}
+        />
       </Switch>
     </Router>
   );
