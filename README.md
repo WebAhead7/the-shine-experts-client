@@ -31,6 +31,7 @@
 <p align="center">
   <img src="./src/images/wash.jpg" width=720px height=360px />
 </p>
+
 ## Getting Started:
 - Creatre an account .
 - Log in to your account .
