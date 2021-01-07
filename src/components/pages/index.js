@@ -9,6 +9,8 @@ import Appointments from './Appointments';
 import BusinessLocation from './BusinessLocation';
 import SuccessfulOrder from './SuccessfulOrder';
 import Confirmation from './Confirmation';
+import BusinessSchedule from './BusinessSchedule';
+
 export {
   Appointments,
   Entry,
@@ -21,4 +23,5 @@ export {
   SuccessfulOrder,
   BusinessLocation,
   Confirmation,
+  BusinessSchedule,
 };

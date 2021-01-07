@@ -68,8 +68,9 @@ const SignInForm = ({ history }) => {
 
   const onClick = (e) => {
     e.preventDefault();
-    setType(e.target.value);
-    changeBodyColor(e.target.value);
+    const type = e.target.value;
+    setType(type);
+    changeBodyColor(type);
   };
 
   return (
